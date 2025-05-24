@@ -1,0 +1,35 @@
+.talent-node {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid #000;
+    width: 50px;
+    height: 50px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    z-index: 99;
+}
+
+.talent-node:hover {
+    transform: scale(1.05);
+}
+
+.talent-node img {
+    border-radius: 50%;
+    border: 5px solid #000;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.talent-handle {
+    opacity: 0;
+}
+
+.talent-icon {
+    pointer-events: none;
+}
