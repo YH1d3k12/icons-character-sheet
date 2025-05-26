@@ -12,14 +12,19 @@ export interface TalentLevel {
     statIncreases?: StatIncrease[];
 }
 
+export type TalentType = 'active' | 'mod-active' | 'passive' | 'conditional';
+
 export interface Talent {
     id: string;
+    tier: number;
+    type: TalentType;
     name: string;
     icon?: string;
     color?: string;
-    connectsTo?: string[]; // IDs of talents this connects to (for tree visualization).
-    prerequisites?: string[]; // IDs of talents required to unlock.
-    levels: TalentLevel[]; // Array of level details.
+    connectsTo?: string[];
+    prerequisites?: string[];
+    relatedTo?: string[];
+    levels: TalentLevel[];
     position: { x: number; y: number };
 }
 

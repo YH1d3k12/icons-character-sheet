@@ -1,24 +1,26 @@
 // src/components/nodes/TalentNode.tsx
 import { Handle, Position } from 'reactflow';
+import type { Talent } from '../../services/talent';
+import getMarkDown from '../../utils/getMarkDown';
 import TalentIcon from '../TalentIcon';
 import './styles.css';
 
 interface TalentNodeProps {
     data: {
-        icon?: string;
-        name: string;
-        color?: string;
+        talentInfo: Talent;
     };
 }
 
 const getTalentBorderColor = (color: string) => {
     switch (color) {
-        case 'red':
-            return '#ff0000';
-        case 'blue':
-            return '#0000ff';
         case 'green':
-            return '#00ff00';
+            return '#19ff21';
+        case 'cyan':
+            return '#19ffe0';
+        case 'purple':
+            return '#9f19ff';
+        case 'yellow':
+            return '#ffd319';
         default:
             return '#ccc';
     }
@@ -27,12 +29,24 @@ const getTalentBorderColor = (color: string) => {
 export default function TalentNode({ data }: TalentNodeProps) {
     return (
         <div
-            onClick={() => console.log('Node clicked', data.name)}
+            onClick={() => console.log('Node clicked', data.talentInfo.name)}
             className="talent-node"
-            style={{ borderColor: getTalentBorderColor(data.color || '') }}
-            title={data.name}
+            style={{
+                borderColor: getTalentBorderColor(data.talentInfo.color || ''),
+            }}
+            title={data.talentInfo.name}
         >
-            <TalentIcon iconName={data.icon || ''} />
+            <TalentIcon iconName={data.talentInfo.icon || ''} />
+            <div className="talent-node-tooltip-container">
+                <h3>{data.talentInfo.name}</h3>
+                {data.talentInfo.levels.map(level => (
+                    <div key={level.level} className="talent-node-tooltip-text">
+                        <p>
+                            {getMarkDown({ markdown: level.description || '' })}
+                        </p>
+                    </div>
+                ))}
+            </div>
             <Handle
                 className="talent-handle"
                 type="source"

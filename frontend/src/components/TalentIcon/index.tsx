@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-const icons = import.meta.glob('../../assets/icons/*.png');
+const icons = import.meta.glob('../../assets/icons/*.svg');
 const loadedIcons: Record<string, string> = {};
 
 export const getTalentIcon = async (iconName: string): Promise<string> => {
-    const path = `../../assets/icons/${iconName}.png`;
+    const path = `../../assets/icons/${iconName}.svg`;
 
     // Se já foi carregado antes, retorna direto.
     if (loadedIcons[path]) return loadedIcons[path];
@@ -36,5 +36,5 @@ export default function TalentIcon({ iconName }: TalentIconProps) {
 
     if (!iconSrc) return null;
 
-    return <img src={iconSrc} alt={iconName} />;
+    return <img className="talent-node-icon" src={iconSrc} alt={iconName} />;
 }

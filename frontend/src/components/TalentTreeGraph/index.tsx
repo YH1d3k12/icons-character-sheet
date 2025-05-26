@@ -22,9 +22,7 @@ const generateNodesAndEdges = (talents: Talent[]) => {
         id: talent.id,
         type: 'talentNode',
         data: {
-            name: talent.name,
-            icon: talent.icon,
-            color: talent.color,
+            talentInfo: talent,
         },
         position: talent.position ?? { x: 100 * index, y: 0 },
         draggable: false,
