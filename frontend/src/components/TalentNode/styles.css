@@ -19,11 +19,30 @@
     transform: scale(1.05);
 }
 
+.talent-node-locked {
+    display: none;
+}
+
+.talent-node-locked {
+    position: absolute;
+    top: auto;
+    left: auto;
+    display: flex;
+    padding: 2px;
+    width: 25px;
+    height: 25px;
+    z-index: 99;
+}
+
 .talent-node-icon {
     padding: 2px;
     width: 40px;
     height: 40px;
     object-fit: cover;
+}
+
+.talent-node-icon {
+    opacity: 0.2;
 }
 
 .talent-handle {

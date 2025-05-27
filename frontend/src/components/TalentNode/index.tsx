@@ -3,6 +3,7 @@ import { Handle, Position } from 'reactflow';
 import type { Talent } from '../../services/talent';
 import getMarkDown from '../../utils/getMarkDown';
 import TalentIcon from '../TalentIcon';
+import { FaLock } from 'react-icons/fa';
 import './styles.css';
 
 interface TalentNodeProps {
@@ -36,6 +37,7 @@ export default function TalentNode({ data }: TalentNodeProps) {
             }}
             title={data.talentInfo.name}
         >
+            <FaLock className="talent-node-locked" />
             <TalentIcon iconName={data.talentInfo.icon || ''} />
             <div className="talent-node-tooltip-container">
                 <h3>{data.talentInfo.name}</h3>
