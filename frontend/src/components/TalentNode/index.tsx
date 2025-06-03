@@ -9,6 +9,9 @@ import './styles.css';
 interface TalentNodeProps {
     data: {
         talentInfo: Talent;
+        onLeftClick?: (talent: Talent) => void;
+        onRightClick?: (talent: Talent, e: React.MouseEvent) => void;
+        state: 'acquired' | 'eligible' | 'locked';
     };
 }
 
@@ -30,8 +33,9 @@ const getTalentBorderColor = (color: string) => {
 export default function TalentNode({ data }: TalentNodeProps) {
     return (
         <div
-            onClick={() => console.log('Node clicked', data.talentInfo.name)}
-            className="talent-node"
+            onClick={() => data.onLeftClick?.(data.talentInfo)}
+            onContextMenu={e => data.onRightClick?.(data.talentInfo, e)}
+            className={`talent-node ${data.state}`}
             style={{
                 borderColor: getTalentBorderColor(data.talentInfo.color || ''),
             }}
@@ -43,9 +47,7 @@ export default function TalentNode({ data }: TalentNodeProps) {
                 <h3>{data.talentInfo.name}</h3>
                 {data.talentInfo.levels.map(level => (
                     <div key={level.level} className="talent-node-tooltip-text">
-                        <p>
-                            {getMarkDown({ markdown: level.description || '' })}
-                        </p>
+                        {getMarkDown({ markdown: level.description || '' })}
                     </div>
                 ))}
             </div>

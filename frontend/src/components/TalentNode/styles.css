@@ -23,7 +23,7 @@
     display: none;
 }
 
-.talent-node-locked {
+.talent-node.locked .talent-node-locked {
     position: absolute;
     top: auto;
     left: auto;
@@ -41,7 +41,8 @@
     object-fit: cover;
 }
 
-.talent-node-icon {
+.talent-node.eligible .talent-node-icon,
+.talent-node.locked .talent-node-icon {
     opacity: 0.2;
 }
 
