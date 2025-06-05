@@ -84,12 +84,14 @@ const TalentTreeGraph: React.FC<TalentTreeGraphProps> = ({
 
     const nodesWithHandlers = nodes.map(node => {
         const talent = node.data.talentInfo;
-        const acquired =
-            character.acquiredTalents[talentTree.id]?.some(
-                (t: AcquiredTalent) => t.id === talent.id
-            ) ?? false;
+        const acquiredTalent = character.acquiredTalents[talentTree.id]?.find(
+            (t: AcquiredTalent) => t.id === talent.id
+        );
+
+        const acquired = !!acquiredTalent;
         const eligible =
             !acquired && canAcquireTalent(character, talentTree.id, talent);
+        const currentLevel = acquiredTalent?.level ?? 0;
 
         return {
             ...node,
@@ -98,6 +100,7 @@ const TalentTreeGraph: React.FC<TalentTreeGraphProps> = ({
                 onLeftClick: handleLeftClick,
                 onRightClick: handleRightClick,
                 state: acquired ? 'acquired' : eligible ? 'eligible' : 'locked',
+                currentLevel,
             },
         };
     });

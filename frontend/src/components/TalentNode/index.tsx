@@ -12,6 +12,7 @@ interface TalentNodeProps {
         onLeftClick?: (talent: Talent) => void;
         onRightClick?: (talent: Talent, e: React.MouseEvent) => void;
         state: 'acquired' | 'eligible' | 'locked';
+        currentLevel: number;
     };
 }
 
@@ -41,6 +42,16 @@ export default function TalentNode({ data }: TalentNodeProps) {
             }}
             title={data.talentInfo.name}
         >
+            <div
+                className="talent-current-level"
+                style={{
+                    borderColor: getTalentBorderColor(
+                        data.talentInfo.color || ''
+                    ),
+                }}
+            >
+                <span>{data.currentLevel}</span>
+            </div>
             <FaLock className="talent-node-locked" />
             <TalentIcon iconName={data.talentInfo.icon || ''} />
             <div className="talent-node-tooltip-container">
