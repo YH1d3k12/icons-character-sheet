@@ -67,7 +67,6 @@ const TalentTreeGraph: React.FC<TalentTreeGraphProps> = ({
 
     const handleLeftClick = (talent: Talent) => {
         if (canAcquireTalent(character, talentTree.id, talent)) {
-            console.log(`Acquiring talent: ${talent.name}`);
             const updated = acquireTalent(character, talentTree.id, talent);
             setCharacter(updated);
         }
@@ -76,7 +75,6 @@ const TalentTreeGraph: React.FC<TalentTreeGraphProps> = ({
     const handleRightClick = (talent: Talent, e: React.MouseEvent) => {
         e.preventDefault();
         if (canUndoTalent(character, talentTree.id, talent, talentTree)) {
-            console.log(`Undoing talent: ${talent.name}`);
             const updated = undoTalent(character, talentTree.id, talent.id);
             setCharacter(updated);
         }
