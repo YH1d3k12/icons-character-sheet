@@ -12,7 +12,7 @@
     font-size: 24px;
     cursor: pointer;
     transition: 0.2s ease-in-out;
-    z-index: 99;
+    z-index: 1;
 }
 
 .talent-node:hover {
@@ -68,17 +68,20 @@
     position: absolute;
     top: 60px;
     left: 50%;
-    border-radius: 6px;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 4px;
     padding: 8px;
     width: 200px;
-    background-color: #333;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.4);
     color: #fff;
     font-size: 12px;
     white-space: normal;
     text-align: left;
     transform: translateX(-50%);
     visibility: hidden;
-    z-index: 1;
+    z-index: 99;
 }
 
 .talent-node-tooltip-container h3 {
@@ -90,8 +93,7 @@
 }
 
 .talent-node-tooltip-text {
-    padding: 4px 6px;
-    background-color: #352f2f;
+    padding: 4px 0px;
 }
 
 .talent-node-tooltip-text p {

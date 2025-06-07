@@ -104,7 +104,7 @@ const TalentTreeGraph: React.FC<TalentTreeGraphProps> = ({
     });
 
     return (
-        <div style={{ width: '100%', height: 600 }}>
+        <div className="talent-tree-graph">
             <ReactFlow
                 nodeTypes={nodeTypes}
                 nodes={nodesWithHandlers}

@@ -14,7 +14,7 @@ export default function Layout() {
                 <div className="layout-outlet">
                     <img
                         className="layout-background-image"
-                        src={bg}
+                        // src={bg}
                         alt="background image"
                     />
                     <Outlet />
