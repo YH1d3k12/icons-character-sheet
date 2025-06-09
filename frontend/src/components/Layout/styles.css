@@ -1,16 +1,14 @@
 .layout {
-    display: flex;
-    flex-direction: column;
+    position: relative;
     width: 100vw;
     height: 100vh;
 }
 
 .layout-content {
-    position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
-    height: calc(100% - 140px);
+    height: 100%;
 }
 
 .layout-outlet {
