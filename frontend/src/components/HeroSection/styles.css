@@ -1,0 +1,213 @@
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 4px;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    padding: 10px;
+    min-width: 280px;
+    width: 15vw;
+    max-width: 320px;
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-section-portrait {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 4px;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    width: 260px;
+    height: 325px;
+}
+
+.hero-section-portrait:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+.hero-section-info {
+    padding: 4px;
+}
+
+.hero-section-info h1 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.hero-section-info p {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.hero-section-portrait img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.hero-section-bars {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: 130px;
+}
+
+.hero-section-bars-values {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4px;
+}
+
+.hero-section-bars-values h4 {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.hero-section-bars-values h4 span {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ffffff;
+    font-variant-numeric: tabular-nums;
+}
+
+.hero-section-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    margin-top: 6px;
+    padding: 4px;
+    width: 100%;
+}
+
+.hero-section-buttons button {
+    flex: 1;
+    padding: 6px 12px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero-section-buttons button#reduce {
+    background-color: rgba(124, 3, 3, 0.8);
+}
+
+.hero-section-buttons button#recover {
+    background-color: rgba(2, 143, 2, 0.8);
+}
+
+.hero-section-buttons button#reset {
+    background-color: rgba(168, 85, 247, 0.8);
+}
+
+.hero-section-essential-attributes {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    justify-content: space-around;
+    margin-top: 4px;
+    padding: 4px;
+    width: 100%;
+}
+
+.hero-section-essential-attributes div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hero-section-essential-attributes div h4 {
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.hero-section-essential-attributes div h4 span {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.hero-section-attributes {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 4px;
+    padding: 4px;
+}
+
+.hero-section-attributes div {
+    display: flex;
+    gap: 4px;
+}
+
+.hero-section-attribute {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.hero-section-attribute h3 {
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.hero-section-attribute p {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.hero-section-attribute p span {
+    margin-left: 1px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+}
