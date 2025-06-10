@@ -8,17 +8,15 @@ import ReactFlow, {
     useEdgesState,
     addEdge,
 } from 'reactflow';
-import {
-    canAcquireTalent,
-    canUndoTalent,
-    acquireTalent,
-    undoTalent,
-} from '../../services/talent';
 import type { TalentTree, Talent } from '../../services/talent';
+import type { AcquiredTalent, Character } from '../../services/character';
+import canAcquireTalent from '../../utils/canAcquireTalent';
+import acquireTalent from '../../utils/acquireTalent';
+import canUndoTalent from '../../utils/canUndoTalent';
+import undoTalent from '../../utils/undoTalent';
 import TalentNode from '../TalentNode';
 import 'reactflow/dist/style.css';
 import './styles.css';
-import type { AcquiredTalent, Character } from '../../services/character';
 
 interface TalentTreeGraphProps {
     talentTree: TalentTree;
