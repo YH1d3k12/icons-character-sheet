@@ -5,16 +5,20 @@ import './styles.css';
 export default function Navbar() {
     return (
         <nav className="navbar">
-            {options.map(option => (
-                <Link
-                    key={option.title}
-                    to={option.path}
-                    className="navbar-item"
-                >
-                    {option.icon}
-                    <span>{option.title}</span>
-                </Link>
-            ))}
+            <ul className="navbar-menu">
+                {options.map(option => (
+                    <li>
+                        <Link
+                            key={option.title}
+                            to={option.path}
+                            className="navbar-item"
+                        >
+                            {option.icon}
+                            <span>{option.title}</span>
+                        </Link>
+                    </li>
+                ))}
+            </ul>
         </nav>
     );
 }

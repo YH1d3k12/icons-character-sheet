@@ -1,21 +1,9 @@
 .layout {
     position: relative;
-    width: 100vw;
-    height: 100vh;
-}
-
-.layout-content {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
-}
-
-.layout-outlet {
-    padding: 20px 50px;
-    width: 100%;
-    height: 100%;
-    background-color: #080808c0;
+    width: 100vw;
+    height: 100vh;
 }
 
 .layout-background-image {
@@ -28,4 +16,18 @@
     background-repeat: no-repeat;
     background-size: cover;
     z-index: -1;
+}
+
+.layout-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: calc(100% - 120px);
+}
+
+.layout-outlet {
+    padding: 20px 50px;
+    width: 100%;
+    height: 100%;
+    background-color: #080808c0;
 }
