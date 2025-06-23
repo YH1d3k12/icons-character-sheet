@@ -32,6 +32,9 @@ const getTalentBorderColor = (color: string) => {
 };
 
 export default function TalentNode({ data }: TalentNodeProps) {
+    let maxLevel = data.talentInfo.levels.length - 1;
+    let levelIndex = Math.min(data.currentLevel - 1, maxLevel);
+
     return (
         <div
             onClick={() => data.onLeftClick?.(data.talentInfo)}
@@ -56,11 +59,14 @@ export default function TalentNode({ data }: TalentNodeProps) {
             <TalentIcon iconName={data.talentInfo.icon || ''} />
             <div className="talent-node-tooltip-container">
                 <h3>{data.talentInfo.name}</h3>
-                {data.talentInfo.levels.map(level => (
-                    <div key={level.level} className="talent-node-tooltip-text">
-                        {getMarkDown({ markdown: level.description || '' })}
-                    </div>
-                ))}
+                <div className="talent-node-tooltip-text">
+                    {getMarkDown({
+                        markdown:
+                            data.talentInfo.levels[
+                                levelIndex > 0 ? levelIndex : 0
+                            ].description || '',
+                    })}
+                </div>
             </div>
             <Handle
                 className="talent-handle"
