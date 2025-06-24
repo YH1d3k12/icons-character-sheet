@@ -1,18 +1,16 @@
 import { useState } from 'react';
 import TalentTreeGraph from '../../components/TalentTreeGraph';
-import mockedData from '../../data//mockedTalents';
+import mockedData from '../../data//mockedWarrior';
 import mockedCharacter from '../../data/mockedCharacter';
 
 export default function ClassTree() {
-    const talentTree = mockedData[1];
-
     const [character, setCharacter] = useState(mockedCharacter);
 
     return (
         <div>
-            <h1>{mockedData[1].name}</h1>
+            <h1>{mockedData.name}</h1>
             <TalentTreeGraph
-                talentTree={talentTree}
+                talentTree={mockedData}
                 character={character}
                 setCharacter={setCharacter}
             />
