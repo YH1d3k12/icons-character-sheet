@@ -31,6 +31,18 @@ const getTalentBorderColor = (color: string) => {
     }
 };
 
+const toRoman = (num: number): string => {
+    const romanNumerals: { [key: number]: string } = {
+        0: '*',
+        1: 'I',
+        2: 'II',
+        3: 'III',
+        4: 'IV',
+        5: 'V',
+    };
+    return romanNumerals[num] || num.toString();
+};
+
 export default function TalentNode({ data }: TalentNodeProps) {
     let maxLevel = data.talentInfo.levels.length - 1;
     let levelIndex = Math.min(data.currentLevel - 1, maxLevel);
@@ -54,6 +66,16 @@ export default function TalentNode({ data }: TalentNodeProps) {
                 }}
             >
                 <span>{data.currentLevel}</span>
+            </div>
+            <div
+                className="talent-tier"
+                style={{
+                    borderColor: getTalentBorderColor(
+                        data.talentInfo.color || ''
+                    ),
+                }}
+            >
+                <span>{toRoman(data.talentInfo.tier)}</span>
             </div>
             <FaLock className="talent-node-locked" />
             <TalentIcon iconName={data.talentInfo.icon || ''} />
