@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { useCharacter } from '../../hook/useCharacter';
 import AnimatedProgressBar from '../AnimatedProgressBar';
-import character from '../../assets/character.jpg';
+import characterIMG from '../../assets/character.jpg';
 import './styles.css';
 
 export default function HeroSection() {
+    const [character, setCharacter] = useCharacter();
     const [hp, setHp] = useState(172);
     const [mp, setMp] = useState(230);
     const [armor, setArmor] = useState(28);
@@ -14,12 +16,12 @@ export default function HeroSection() {
     return (
         <section className="hero-section">
             <div className="hero-section-portrait">
-                <img src={character} alt="character image" />
+                <img src={characterIMG} alt="character image" />
                 <div className="hero-section-info">
-                    <h1>Deodatus O'Khorno</h1>
+                    <h1>{character?.name}</h1>
                     <p>
-                        <span>Lvl 57</span> <span>Minotaur</span>{' '}
-                        <span>Cleric of Helm</span>
+                        <span>Lvl {character?.level}</span>{' '}
+                        <span>Minotaur</span> <span>Cleric of Helm</span>
                     </p>
                 </div>
                 <div className="hero-section-bars">

@@ -42,9 +42,17 @@
     transition: opacity 0.3s ease-in-out;
 }
 
-
 .navbar-menu li a span {
     color: #fff;
     font-size: 1.6rem;
     vertical-align: middle;
+}
+
+.navbar-download,
+.navbar-upload {
+    padding: 12px 18px;
+    background-color: #ffffff;
+    color: black;
+    font-size: 1.6rem;
+    cursor: pointer;
 }

@@ -1,21 +1,73 @@
+import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import type { Character } from '../../services/character';
 import Header from '../Header';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
+import mockedCharacter from '../../data/mockedCharacter';
 import './styles.css';
 
+export const CharacterContext = React.createContext<
+    [Character, React.Dispatch<React.SetStateAction<Character>>] | null
+>(null);
+
 export default function Layout() {
+    const [character, setCharacter] = useState<Character>(mockedCharacter);
+
+    const downloadCharacter = () => {
+        try {
+            const json = JSON.stringify(character, null, 2);
+            const blob = new Blob([json], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `${character.name || 'character'}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            URL.revokeObjectURL(url);
+        } catch (error) {
+            console.error('Failed to download character:', error);
+            alert('Error: Could not download character.');
+        }
+    };
+
+    const handleUpload = (file: File) => {
+        const reader = new FileReader();
+        reader.onload = e => {
+            try {
+                const data = JSON.parse(
+                    e.target?.result as string
+                ) as Character;
+                setCharacter(data);
+            } catch {
+                alert('Invalid character file.');
+            }
+        };
+        reader.readAsText(file);
+    };
+
     return (
-        <div className="layout">
-            <img className="layout-background-image" alt="background image" />
-            <Header />
-            <div className="layout-content">
-                <Navbar />
-                <div className="layout-outlet">
-                    <Outlet />
+        <CharacterContext.Provider value={[character, setCharacter]}>
+            <div className="layout">
+                <img
+                    className="layout-background-image"
+                    alt="background image"
+                />
+                <Header />
+                <div className="layout-content">
+                    <Navbar
+                        onDownloadCharacter={downloadCharacter}
+                        onUploadCharacter={handleUpload}
+                    />
+                    <div className="layout-outlet">
+                        <Outlet />
+                    </div>
                 </div>
+                <Footer />
             </div>
-            <Footer />
-        </div>
+        </CharacterContext.Provider>
     );
 }
