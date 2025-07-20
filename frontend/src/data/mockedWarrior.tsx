@@ -37,7 +37,7 @@ const talentTreeWarrior: TalentTree = {
             name: 'Combat Prowess',
             icon: 'winged-sword',
             color: 'purple',
-            connectsTo: ['warrior_combat_expertise', 'warrior_action_surge'],
+            connectsTo: ['warrior_combat_expertise'],
             prerequisites: ['warrior_combat_superiority'],
             levels: [
                 {
@@ -75,7 +75,7 @@ const talentTreeWarrior: TalentTree = {
             name: 'Combat Expertise',
             icon: 'swords-emblem',
             color: 'green',
-            connectsTo: ['warrior_improved_critical', 'warrior_combat_mastery'],
+            connectsTo: ['warrior_combat_mastery', 'warrior_action_surge'],
             prerequisites: ['warrior_combat_prowess'],
             levels: [
                 {
@@ -438,7 +438,7 @@ const talentTreeWarrior: TalentTree = {
                         'Once per long rest, when you drop to 0 hit points or lower and not killed instantly, your hit points do not drop to 0. Instead, you regain hit points equal to 5 times your invested points in the Warrior Class. Additionally, your Defense increases by 5, and you gain a +5 bonus to all skill checks until the end of your next turn.',
                 },
             ],
-            position: { x: 300, y: -260 },
+            position: { x: 235, y: -260 },
         },
         {
             id: 'warrior_relentless',
@@ -494,7 +494,7 @@ const talentTreeWarrior: TalentTree = {
             icon: 'mighty-force',
             color: 'purple',
             connectsTo: [],
-            prerequisites: ['warrior_combat_prowess'],
+            prerequisites: ['warrior_combat_expertise'],
             levels: [
                 {
                     level: 1,
@@ -507,7 +507,7 @@ const talentTreeWarrior: TalentTree = {
                         '(Once/**Twice**) per rest, you can regain all of your actions on your turn, allowing you to push beyond your limits and act with unparalleled speed and precision.',
                 },
             ],
-            position: { x: 200, y: -235 },
+            position: { x: 200, y: -385 },
         },
         {
             id: 'warrior_fighting_spirit',
@@ -536,42 +536,6 @@ const talentTreeWarrior: TalentTree = {
                 },
             ],
             position: { x: -320, y: -145 },
-        },
-        {
-            id: 'warrior_improved_critical',
-            tier: 3,
-            type: 'passive',
-            name: 'Improved Critical',
-            icon: 'gooey-impact',
-            color: 'green',
-            connectsTo: ['warrior_superior_critical'],
-            prerequisites: ['warrior_combat_expertise'],
-            levels: [
-                {
-                    level: 1,
-                    description:
-                        'Your attack rolls score a critical hit on a roll of 19-20.',
-                },
-            ],
-            position: { x: 150, y: -355 },
-        },
-        {
-            id: 'warrior_superior_critical',
-            tier: 5,
-            type: 'passive',
-            name: 'Superior Critical',
-            icon: 'gooey-impact',
-            color: 'green',
-            connectsTo: [],
-            prerequisites: ['warrior_improved_critical'],
-            levels: [
-                {
-                    level: 1,
-                    description:
-                        'Your attack rolls score a critical hit on a roll of 18-20.',
-                },
-            ],
-            position: { x: 220, y: -465 },
         },
     ],
 };
