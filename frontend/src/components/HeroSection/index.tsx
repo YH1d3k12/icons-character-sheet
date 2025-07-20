@@ -34,19 +34,9 @@ export default function HeroSection() {
                             Armor <span>{armor}</span>
                         </h4>
                         <h4>
-                            Barrier <span>{barrier}</span>
+                            M. Armor <span>{barrier}</span>
                         </h4>
                     </div>
-                    <AnimatedProgressBar
-                        current={barrier}
-                        max={15}
-                        type="barrier"
-                    />
-                    <AnimatedProgressBar
-                        current={armor}
-                        max={40}
-                        type="armor"
-                    />
                     <AnimatedProgressBar current={hp} max={maxHp} type="hp" />
                     <AnimatedProgressBar current={mp} max={maxMp} type="mp" />
                 </div>
@@ -133,6 +123,7 @@ export default function HeroSection() {
                     </div>
                 </div>
             </div>
+            <div className="hero-section-resistances">{}</div>
         </section>
     );
 }

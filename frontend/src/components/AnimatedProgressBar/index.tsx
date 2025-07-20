@@ -3,7 +3,7 @@ import './styles.css';
 interface ProgressBarProps {
     current: number;
     max: number;
-    type: 'hp' | 'mp' | 'armor' | 'barrier';
+    type: 'hp' | 'mp' | 'barrier';
 }
 
 const gradientColors = {
@@ -16,11 +16,6 @@ const gradientColors = {
         full: 'gradient-mp',
         background: 'background-mp',
         glow: 'glow-mp',
-    },
-    armor: {
-        full: 'gradient-armor',
-        background: 'background-armor',
-        glow: 'glow-armor',
     },
     barrier: {
         full: 'gradient-barrier',

@@ -1,11 +1,8 @@
-export type ModifierType = 'flat' | 'percent' | 'multiplier';
-export type ModifierSource = 'manual' | 'system';
+export type BarKey = 'hp' | 'mp' | 'tempHp';
+
 export type AttributeKey =
-    | 'hp'
-    | 'mp'
-    | 'ki'
-    | 'barrier'
     | 'armor'
+    | 'mArmor'
     | 'strength'
     | 'dexterity'
     | 'vigor'
@@ -23,7 +20,7 @@ export type ResistanceKey =
     | 'bludgeoning'
     | 'corrosive'
     | 'cold'
-    | 'eletric'
+    | 'electric'
     | 'fire'
     | 'thauma'
     | 'thunder'
@@ -38,33 +35,36 @@ export interface AcquiredTalent {
     level: number;
 }
 
-export interface Attribute {
+export interface BarValue {
+    current: number;
     base: number;
-    modifiers: {
-        value: number;
-        type: ModifierType;
-        source: ModifierSource;
-    }[];
+    bought: number;
+    flat: number;
+    multiplier: number;
+    percentile: number;
 }
 
-export interface Resistance {
+export interface StatValue {
     base: number;
-    modifiers: {
-        value: number;
-        type: ModifierType;
-        source: ModifierSource;
-    }[];
+    bought: number;
+    flat: number;
+    multiplier: number;
+    percentile: number;
 }
 
-export type AttributeMap = Record<AttributeKey, Attribute>;
-export type ResistanceMap = Record<ResistanceKey, Resistance>;
+export type BarMap = Record<BarKey, BarValue>;
+export type AttributeMap = Record<AttributeKey, StatValue>;
+export type ResistanceMap = Record<ResistanceKey, StatValue>;
 
 export interface Character {
     id: number;
-    level: number;
     name: string;
+    level: number;
+    xp: number;
+    spentXp: number;
     maxClp: number;
     spentClp: number;
+    bars: BarMap;
     acquiredTalents: Record<number, AcquiredTalent[]>;
     classInvestments: Record<number, number>;
     attributes: AttributeMap;
