@@ -1,25 +1,13 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import type { Character } from '../../services/character';
+import type { DerivedStatsMap } from '../../utils/getDerivedStats';
+import getDerivedStats from '../../utils/getDerivedStats';
 import Header from '../Header';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
-import {
-    getCharacterLevel,
-    getTotalAttribute,
-    getAttributeModifier,
-    getTotalActions,
-    getTotalDefense,
-} from '../../utils/getDerivedStats';
 import mockedCharacter from '../../data/mockedCharacter';
 import './styles.css';
-
-export interface DerivedStatValue {
-    base: number;
-    modifier: number;
-}
-
-type DerivedStatsMap = Record<string, DerivedStatValue>;
 
 export const CharacterContext = React.createContext<
     | [
@@ -32,56 +20,7 @@ export const CharacterContext = React.createContext<
 
 export default function Layout() {
     const [character, setCharacter] = useState<Character>(mockedCharacter);
-    const derivedStats = useMemo(
-        () => ({
-            level: { base: getCharacterLevel(character.xp), modifier: 0 },
-            totalStrength: {
-                base: getTotalAttribute(character, 'strength'),
-                modifier: getAttributeModifier(character, 'strength'),
-            },
-            totalDexterity: {
-                base: getTotalAttribute(character, 'dexterity'),
-                modifier: getAttributeModifier(character, 'dexterity'),
-            },
-            totalVigor: {
-                base: getTotalAttribute(character, 'vigor'),
-                modifier: getAttributeModifier(character, 'vigor'),
-            },
-            totalSenses: {
-                base: getTotalAttribute(character, 'senses'),
-                modifier: getAttributeModifier(character, 'senses'),
-            },
-            totalCharisma: {
-                base: getTotalAttribute(character, 'charisma'),
-                modifier: getAttributeModifier(character, 'charisma'),
-            },
-            totalMind: {
-                base: getTotalAttribute(character, 'mind'),
-                modifier: getAttributeModifier(character, 'mind'),
-            },
-            totalSpirit: {
-                base: getTotalAttribute(character, 'spirit'),
-                modifier: getAttributeModifier(character, 'spirit'),
-            },
-            totalLuck: {
-                base: getTotalAttribute(character, 'luck'),
-                modifier: getAttributeModifier(character, 'luck'),
-            },
-            totalSpeed: {
-                base: getTotalAttribute(character, 'speed'),
-                modifier: 0,
-            },
-            totalDefense: {
-                base: getTotalDefense(character),
-                modifier: 0,
-            },
-            totalActions: {
-                base: getTotalActions(character.xp),
-                modifier: 0,
-            },
-        }),
-        [character]
-    );
+    const derivedStats = getDerivedStats(character);
 
     const downloadCharacter = () => {
         try {

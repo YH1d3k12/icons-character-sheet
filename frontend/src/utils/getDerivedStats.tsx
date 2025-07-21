@@ -1,68 +1,136 @@
+import { useMemo } from 'react';
 import type { Character } from '../services/character';
+import {
+    calcCharacterLevel,
+    calcTotalAttribute,
+    calcAttributeModifier,
+    calcTotalActions,
+    calcTotalDefense,
+} from './calcDerivedStats';
 
-export function getCharacterLevel(xp: number) {
-    let totalXp = xp - 50;
-    let xpNeeded = 5;
-    let level = 1;
-
-    while (totalXp >= xpNeeded) {
-        totalXp -= xpNeeded;
-        level++;
-
-        if (level % 10 === 1) {
-            xpNeeded += 5;
-        }
-    }
-
-    return level;
+interface DerivedStatValue {
+    base: number;
+    modifier: number;
 }
 
-export function getTotalAttribute(
-    char: Character,
-    attributeKey: keyof Character['attributes']
-) {
-    let result =
-        char.attributes[attributeKey].base +
-        char.attributes[attributeKey].bought;
+export type DerivedStatsMap = Record<string, DerivedStatValue>;
 
-    result += char.attributes[attributeKey].flat;
-    result *= 1 + char.attributes[attributeKey].multiplier;
-    result *= 1 + char.attributes[attributeKey].percentile / 100;
-    return result;
-}
+export default function getDerivedStats(character: Character): DerivedStatsMap {
+    const overallRelated = useMemo(
+        () => ({
+            totalDefense: {
+                base: calcTotalDefense(character),
+                modifier: 0,
+            },
+            totalSpeed: {
+                base: calcTotalAttribute(character, 'speed'),
+                modifier: 0,
+            },
+        }),
+        [character]
+    );
 
-export function getAttributeModifier(
-    char: Character,
-    attributeKey: keyof Character['attributes']
-) {
-    const value = getTotalAttribute(char, attributeKey);
-    return Math.floor((value - 25) / 5);
-}
+    const xpRelated = useMemo(() => {
+        const level = calcCharacterLevel(character.xp);
 
-export function getTotalActions(xp: number) {
-    const level = getCharacterLevel(xp);
-    const thresholds = [30, 60, 90];
-    let actions = 3;
+        return {
+            level: { base: level, modifier: 0 },
+            totalActions: { base: calcTotalActions(level), modifier: 0 },
+        };
+    }, [character.xp]);
 
-    for (const threshold of thresholds) {
-        if (level >= threshold) {
-            actions++;
-        }
-    }
+    const strengthRelated = useMemo(
+        () => ({
+            totalStrength: {
+                base: calcTotalAttribute(character, 'strength'),
+                modifier: calcAttributeModifier(character, 'strength'),
+            },
+        }),
+        [character.attributes.strength]
+    );
 
-    return actions;
-}
+    const dexterityRelated = useMemo(
+        () => ({
+            totalDexterity: {
+                base: calcTotalAttribute(character, 'dexterity'),
+                modifier: calcAttributeModifier(character, 'dexterity'),
+            },
+        }),
+        [character.attributes.dexterity]
+    );
 
-export function getTotalDefense(char: Character) {
-    let baseDefense = char.attributes['defense'].base;
-    baseDefense += char.attributes['defense'].bought;
-    baseDefense += char.attributes['defense'].flat;
+    const vigorRelated = useMemo(
+        () => ({
+            totalVigor: {
+                base: calcTotalAttribute(character, 'vigor'),
+                modifier: calcAttributeModifier(character, 'vigor'),
+            },
+        }),
+        [character.attributes.vigor]
+    );
 
-    baseDefense += getAttributeModifier(char, 'dexterity');
-    baseDefense += getAttributeModifier(char, 'senses');
+    const sensesRelated = useMemo(
+        () => ({
+            totalSenses: {
+                base: calcTotalAttribute(character, 'senses'),
+                modifier: calcAttributeModifier(character, 'senses'),
+            },
+        }),
+        [character.attributes.senses]
+    );
 
-    baseDefense *= 1 + char.attributes['defense'].multiplier;
-    baseDefense *= 1 + char.attributes['defense'].percentile / 100;
+    const charismaRelated = useMemo(
+        () => ({
+            totalCharisma: {
+                base: calcTotalAttribute(character, 'charisma'),
+                modifier: calcAttributeModifier(character, 'charisma'),
+            },
+        }),
+        [character.attributes.charisma]
+    );
 
-    return baseDefense;
+    const mindRelated = useMemo(
+        () => ({
+            totalMind: {
+                base: calcTotalAttribute(character, 'mind'),
+                modifier: calcAttributeModifier(character, 'mind'),
+            },
+        }),
+        [character.attributes.mind]
+    );
+
+    const spiritRelated = useMemo(
+        () => ({
+            totalSpirit: {
+                base: calcTotalAttribute(character, 'spirit'),
+                modifier: calcAttributeModifier(character, 'spirit'),
+            },
+        }),
+        [character.attributes.spirit]
+    );
+
+    const luckRelated = useMemo(
+        () => ({
+            totalLuck: {
+                base: calcTotalAttribute(character, 'luck'),
+                modifier: calcAttributeModifier(character, 'luck'),
+            },
+        }),
+        [character.attributes.luck]
+    );
+
+    const derivedStats = {
+        ...overallRelated,
+        ...xpRelated,
+        ...strengthRelated,
+        ...dexterityRelated,
+        ...vigorRelated,
+        ...sensesRelated,
+        ...charismaRelated,
+        ...mindRelated,
+        ...spiritRelated,
+        ...luckRelated,
+    };
+
+    return derivedStats;
 }
