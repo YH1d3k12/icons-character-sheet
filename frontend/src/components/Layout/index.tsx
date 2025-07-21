@@ -7,38 +7,39 @@ import Footer from '../Footer';
 import {
     getCharacterLevel,
     getTotalAttribute,
+    getAttributeModifier,
 } from '../../utils/getDerivedStats';
 import mockedCharacter from '../../data/mockedCharacter';
 import './styles.css';
 
-interface DerivedStat {
-    name: string;
-    value: number;
+export interface DerivedStatValue {
+    base: number;
+    modifier: number;
 }
+
+type DerivedStatsMap = Record<string, DerivedStatValue>;
 
 export const CharacterContext = React.createContext<
     | [
           Character,
           React.Dispatch<React.SetStateAction<Character>>,
-          DerivedStat[]
+          DerivedStatsMap
       ]
     | null
 >(null);
 
 export default function Layout() {
     const [character, setCharacter] = useState<Character>(mockedCharacter);
-    const derivedStats = useMemo(() => {
-        return [
-            {
-                name: 'level',
-                value: getCharacterLevel(character.xp),
+    const derivedStats = useMemo(
+        () => ({
+            level: { base: getCharacterLevel(character.xp), modifier: 0 },
+            totalStrength: {
+                base: getTotalAttribute(character, 'strength'),
+                modifier: getAttributeModifier(character, 'strength'),
             },
-            {
-                name: 'totalStrength',
-                value: getTotalAttribute(character, 'strength'),
-            },
-        ];
-    }, [character]);
+        }),
+        [character]
+    );
 
     const downloadCharacter = () => {
         try {

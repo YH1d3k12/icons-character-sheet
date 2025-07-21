@@ -1,17 +1,18 @@
 import { useState } from 'react';
-import { useCharacter } from '../../hook/useCharacter';
+import { useCharacter, useDerivedStats } from '../../hook/useCharacter';
 import AnimatedProgressBar from '../AnimatedProgressBar';
 import characterIMG from '../../assets/character.jpg';
 import './styles.css';
 
 export default function HeroSection() {
-    const [character, setCharacter] = useCharacter();
+    const [character, setCharacter, derivedStats] = useCharacter();
     const [hp, setHp] = useState(172);
     const [mp, setMp] = useState(230);
     const [armor, setArmor] = useState(28);
     const [barrier, setBarrier] = useState(15);
     const maxHp = 238;
     const maxMp = 393;
+    const strength = useDerivedStats('totalStrength');
 
     return (
         <section className="hero-section">
@@ -20,8 +21,8 @@ export default function HeroSection() {
                 <div className="hero-section-info">
                     <h1>{character?.name}</h1>
                     <p>
-                        <span>Lvl {character?.level}</span>{' '}
-                        <span>Minotaur</span> <span>Cleric of Helm</span>
+                        <span>Lvl {}</span> <span>Minotaur</span>{' '}
+                        <span>Cleric of Helm</span>
                     </p>
                 </div>
                 <div className="hero-section-bars">
@@ -76,7 +77,8 @@ export default function HeroSection() {
                     <div className="hero-section-attribute">
                         <h3>Strength</h3>
                         <p>
-                            48<span>(+3)</span>
+                            {strength.base}
+                            <span>({strength.modifier})</span>
                         </p>
                     </div>
                     <div className="hero-section-attribute">

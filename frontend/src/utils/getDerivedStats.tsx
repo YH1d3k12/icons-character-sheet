@@ -30,3 +30,11 @@ export function getTotalAttribute(
     result *= 1 + char.attributes[attributeKey].percentile / 100;
     return result;
 }
+
+export function getAttributeModifier(
+    char: Character,
+    attributeKey: keyof Character['attributes']
+) {
+    const value = getTotalAttribute(char, attributeKey);
+    return Math.floor((value - 25) / 5);
+}

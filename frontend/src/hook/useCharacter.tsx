@@ -12,8 +12,5 @@ export function useCharacter() {
 
 export function useDerivedStats(key: string) {
     const [, , derivedStats] = useCharacter();
-
-    let result = derivedStats.find(stat => stat.name === key)?.value || 0;
-
-    return result;
+    return derivedStats[key];
 }
