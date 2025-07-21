@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useCharacter, useDerivedStats } from '../../hook/useCharacter';
 import AnimatedProgressBar from '../AnimatedProgressBar';
 import characterIMG from '../../assets/character.jpg';
+import HeroAttributes from '../HeroAttributes';
 import './styles.css';
 
 export default function HeroSection() {
@@ -12,7 +13,6 @@ export default function HeroSection() {
     const [barrier, setBarrier] = useState(15);
     const maxHp = 238;
     const maxMp = 393;
-    const strength = useDerivedStats('totalStrength');
 
     return (
         <section className="hero-section">
@@ -72,61 +72,7 @@ export default function HeroSection() {
                     </h4>
                 </div>
             </div>
-            <div className="hero-section-attributes">
-                <div className="row">
-                    <div className="hero-section-attribute">
-                        <h3>Strength</h3>
-                        <p>
-                            {strength.base}
-                            <span>({strength.modifier})</span>
-                        </p>
-                    </div>
-                    <div className="hero-section-attribute">
-                        <h3>Dexterity</h3>
-                        <p>
-                            22<span>(-1)</span>
-                        </p>
-                    </div>
-                    <div className="hero-section-attribute">
-                        <h3>Vigor</h3>
-                        <p>
-                            40<span>(+3)</span>
-                        </p>
-                    </div>
-                    <div className="hero-section-attribute">
-                        <h3>Senses</h3>
-                        <p>
-                            38<span>(+2)</span>
-                        </p>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="hero-section-attribute">
-                        <h3>Charisma</h3>
-                        <p>
-                            33<span>(+2)</span>
-                        </p>
-                    </div>
-                    <div className="hero-section-attribute">
-                        <h3>Mind</h3>
-                        <p>
-                            25<span>(0)</span>
-                        </p>
-                    </div>
-                    <div className="hero-section-attribute">
-                        <h3>Spirit</h3>
-                        <p>
-                            56<span>(+6)</span>
-                        </p>
-                    </div>
-                    <div className="hero-section-attribute">
-                        <h3>Luck</h3>
-                        <p>
-                            30<span>(+1)</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <HeroAttributes />
             <div className="hero-section-resistances">{}</div>
         </section>
     );

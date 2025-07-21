@@ -37,6 +37,34 @@ export default function Layout() {
                 base: getTotalAttribute(character, 'strength'),
                 modifier: getAttributeModifier(character, 'strength'),
             },
+            totalDexterity: {
+                base: getTotalAttribute(character, 'dexterity'),
+                modifier: getAttributeModifier(character, 'dexterity'),
+            },
+            totalVigor: {
+                base: getTotalAttribute(character, 'vigor'),
+                modifier: getAttributeModifier(character, 'vigor'),
+            },
+            totalSenses: {
+                base: getTotalAttribute(character, 'senses'),
+                modifier: getAttributeModifier(character, 'senses'),
+            },
+            totalCharisma: {
+                base: getTotalAttribute(character, 'charisma'),
+                modifier: getAttributeModifier(character, 'charisma'),
+            },
+            totalMind: {
+                base: getTotalAttribute(character, 'mind'),
+                modifier: getAttributeModifier(character, 'mind'),
+            },
+            totalSpirit: {
+                base: getTotalAttribute(character, 'spirit'),
+                modifier: getAttributeModifier(character, 'spirit'),
+            },
+            totalLuck: {
+                base: getTotalAttribute(character, 'luck'),
+                modifier: getAttributeModifier(character, 'luck'),
+            },
         }),
         [character]
     );
