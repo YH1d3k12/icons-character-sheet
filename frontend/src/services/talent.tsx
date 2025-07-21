@@ -30,9 +30,15 @@ export interface Talent {
 
 export type TalentTreeTag = 'class' | 'universal' | 'racial';
 
-export interface TalentTree {
+export interface ClassSummary {
     id: number;
     name: string;
+    hpIncrease: number;
+    mpIncrease: number;
     tag: TalentTreeTag;
+}
+
+export interface TalentTree {
+    summary: ClassSummary;
     talents: Talent[];
 }

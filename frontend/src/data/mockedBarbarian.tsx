@@ -1,9 +1,15 @@
-import type { TalentTree } from '../services/talent';
+import type { TalentTree, ClassSummary } from '../services/talent';
 
-const talentTreeBarbarian: TalentTree = {
+export const barbarianSummary: ClassSummary = {
     id: 3,
     name: 'Barbarian',
+    hpIncrease: 8,
+    mpIncrease: 2,
     tag: 'class',
+};
+
+const talentTreeBarbarian: TalentTree = {
+    summary: barbarianSummary,
     talents: [
         {
             id: 'barbarian_rage',

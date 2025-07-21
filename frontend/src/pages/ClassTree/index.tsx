@@ -7,7 +7,7 @@ export default function ClassTree() {
 
     return (
         <div>
-            <h1>{mockedData.name}</h1>
+            <h1>{mockedData.summary.name}</h1>
             <TalentTreeGraph
                 talentTree={mockedData}
                 character={character}

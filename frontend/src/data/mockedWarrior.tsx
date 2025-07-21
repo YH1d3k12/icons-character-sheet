@@ -1,9 +1,15 @@
-import type { TalentTree } from '../services/talent';
+import type { TalentTree, ClassSummary } from '../services/talent';
 
-const talentTreeWarrior: TalentTree = {
+export const warriorSummary: ClassSummary = {
     id: 2,
     name: 'Warrior',
+    hpIncrease: 6,
+    mpIncrease: 4,
     tag: 'class',
+};
+
+const talentTreeWarrior: TalentTree = {
+    summary: warriorSummary,
     talents: [
         {
             id: 'warrior_combat_superiority',
