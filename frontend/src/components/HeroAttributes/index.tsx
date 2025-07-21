@@ -1,15 +1,15 @@
-import { useDerivedStats } from '../../hook/useCharacter';
+import { useKeyStat } from '../../hooks/useCharacter';
 import './styles.css';
 
 export default function HeroAttributes() {
-    const strength = useDerivedStats('totalStrength');
-    const dexterity = useDerivedStats('totalDexterity');
-    const vigor = useDerivedStats('totalVigor');
-    const senses = useDerivedStats('totalSenses');
-    const charisma = useDerivedStats('totalCharisma');
-    const mind = useDerivedStats('totalMind');
-    const spirit = useDerivedStats('totalSpirit');
-    const luck = useDerivedStats('totalLuck');
+    const strength = useKeyStat('totalStrength');
+    const dexterity = useKeyStat('totalDexterity');
+    const vigor = useKeyStat('totalVigor');
+    const senses = useKeyStat('totalSenses');
+    const charisma = useKeyStat('totalCharisma');
+    const mind = useKeyStat('totalMind');
+    const spirit = useKeyStat('totalSpirit');
+    const luck = useKeyStat('totalLuck');
 
     return (
         <div className="hero-section-attributes">

@@ -1,10 +1,10 @@
-import { useDerivedStats } from '../../hook/useCharacter';
+import { useKeyStat } from '../../hooks/useCharacter';
 import './styles.css';
 
 export default function HeroEssentialAttributes() {
-    const totalSpeed = useDerivedStats('totalSpeed');
-    const totalDefense = useDerivedStats('totalDefense');
-    const totalActions = useDerivedStats('totalActions');
+    const totalSpeed = useKeyStat('totalSpeed');
+    const totalDefense = useKeyStat('totalDefense');
+    const totalActions = useKeyStat('totalActions');
 
     return (
         <div className="hero-section-essential-attributes">

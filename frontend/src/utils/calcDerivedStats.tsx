@@ -1,4 +1,5 @@
 import type { Character } from '../services/character';
+import { getClassInfo } from './getClassInfo';
 
 export function calcCharacterLevel(xp: number) {
     let totalXp = xp - 50;
@@ -31,11 +32,7 @@ export function calcTotalAttribute(
     return result;
 }
 
-export function calcAttributeModifier(
-    char: Character,
-    attributeKey: keyof Character['attributes']
-) {
-    const value = calcTotalAttribute(char, attributeKey);
+export function calcAttributeModifier(value: number) {
     return Math.floor((value - 25) / 5);
 }
 
@@ -57,11 +54,33 @@ export function calcTotalDefense(char: Character) {
     baseDefense += char.attributes['defense'].bought;
     baseDefense += char.attributes['defense'].flat;
 
-    baseDefense += calcAttributeModifier(char, 'dexterity');
-    baseDefense += calcAttributeModifier(char, 'senses');
+    // baseDefense += calcAttributeModifier(char, 'dexterity');
+    // baseDefense += calcAttributeModifier(char, 'senses');
 
     baseDefense *= 1 + char.attributes['defense'].multiplier;
     baseDefense *= 1 + char.attributes['defense'].percentile / 100;
 
     return baseDefense;
+}
+
+export function calcHitPointMaximum(char: Character) {
+    let totalVigor = calcTotalAttribute(char, 'vigor');
+    let totalLuck = calcTotalAttribute(char, 'luck');
+    let hp = 0;
+
+    hp = totalVigor + totalLuck;
+
+    // for (const [classIdStr, pointsInvested] of Object.entries(
+    //     char.classInvestments
+    // )) {
+    //     const classId = Number(classIdStr);
+    //     if (pointsInvested <= 0) continue;
+
+    //     const cls = getClassInfo(classId);
+    //     if (cls) {
+    //         hp += cls.hpIncrease +
+    //     }
+    // }
+
+    return Math.floor(hp);
 }

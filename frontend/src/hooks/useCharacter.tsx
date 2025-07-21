@@ -10,7 +10,7 @@ export function useCharacter() {
     return context;
 }
 
-export function useDerivedStats(key: string) {
+export function useKeyStat(key: string) {
     const [, , derivedStats] = useCharacter();
     return derivedStats[key];
 }

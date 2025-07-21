@@ -1,5 +1,5 @@
 import TalentTreeGraph from '../../components/TalentTreeGraph';
-import { useCharacter } from '../../hook/useCharacter';
+import { useCharacter } from '../../hooks/useCharacter';
 import mockedData from '../../data//mockedBarbarian';
 
 export default function ClassTree() {

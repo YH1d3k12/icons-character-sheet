@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useCharacter, useDerivedStats } from '../../hook/useCharacter';
+import { useCharacter, useKeyStat } from '../../hooks/useCharacter';
 import AnimatedProgressBar from '../AnimatedProgressBar';
 import characterIMG from '../../assets/character.jpg';
 import HeroEssentialAttributes from '../HeroEssentialAttributes';
@@ -8,7 +8,7 @@ import './styles.css';
 
 export default function HeroSection() {
     const [character, setCharacter, derivedStats] = useCharacter();
-    const level = useDerivedStats('level');
+    const level = useKeyStat('level');
     const [hp, setHp] = useState(172);
     const [mp, setMp] = useState(230);
     const [armor, setArmor] = useState(28);

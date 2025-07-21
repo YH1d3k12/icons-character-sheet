@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import type { Character } from '../../services/character';
-import type { DerivedStatsMap } from '../../utils/getDerivedStats';
-import getDerivedStats from '../../utils/getDerivedStats';
+import type { DerivedStatsMap } from '../../hooks/useDerivedStats';
+import useDerivedStats from '../../hooks/useDerivedStats';
 import Header from '../Header';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
@@ -20,7 +20,7 @@ export const CharacterContext = React.createContext<
 
 export default function Layout() {
     const [character, setCharacter] = useState<Character>(mockedCharacter);
-    const derivedStats = getDerivedStats(character);
+    const derivedStats = useDerivedStats(character);
 
     const downloadCharacter = () => {
         try {
