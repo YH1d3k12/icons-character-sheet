@@ -9,3 +9,11 @@ export function useCharacter() {
         );
     return context;
 }
+
+export function useDerivedStats(key: string) {
+    const [, , derivedStats] = useCharacter();
+
+    let result = derivedStats.find(stat => stat.name === key)?.value || 0;
+
+    return result;
+}

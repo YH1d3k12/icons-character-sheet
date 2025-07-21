@@ -1,18 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Outlet } from 'react-router-dom';
 import type { Character } from '../../services/character';
 import Header from '../Header';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
+import {
+    getCharacterLevel,
+    getTotalAttribute,
+} from '../../utils/getDerivedStats';
 import mockedCharacter from '../../data/mockedCharacter';
 import './styles.css';
 
+interface DerivedStat {
+    name: string;
+    value: number;
+}
+
 export const CharacterContext = React.createContext<
-    [Character, React.Dispatch<React.SetStateAction<Character>>] | null
+    | [
+          Character,
+          React.Dispatch<React.SetStateAction<Character>>,
+          DerivedStat[]
+      ]
+    | null
 >(null);
 
 export default function Layout() {
     const [character, setCharacter] = useState<Character>(mockedCharacter);
+    const derivedStats = useMemo(() => {
+        return [
+            {
+                name: 'level',
+                value: getCharacterLevel(character.xp),
+            },
+            {
+                name: 'totalStrength',
+                value: getTotalAttribute(character, 'strength'),
+            },
+        ];
+    }, [character]);
 
     const downloadCharacter = () => {
         try {
@@ -50,7 +76,9 @@ export default function Layout() {
     };
 
     return (
-        <CharacterContext.Provider value={[character, setCharacter]}>
+        <CharacterContext.Provider
+            value={[character, setCharacter, derivedStats]}
+        >
             <div className="layout">
                 <img
                     className="layout-background-image"

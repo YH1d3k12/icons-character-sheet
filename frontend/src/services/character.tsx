@@ -37,8 +37,6 @@ export interface AcquiredTalent {
 
 export interface BarValue {
     current: number;
-    base: number;
-    bought: number;
     flat: number;
     multiplier: number;
     percentile: number;
@@ -59,7 +57,6 @@ export type ResistanceMap = Record<ResistanceKey, StatValue>;
 export interface Character {
     id: number;
     name: string;
-    level: number;
     xp: number;
     spentXp: number;
     maxClp: number;

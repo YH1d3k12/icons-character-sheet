@@ -3,7 +3,6 @@ import type { Character } from '../services/character';
 const mockedCharacter: Character = {
     id: 1,
     name: 'Mocked Character',
-    level: 1,
     xp: 50,
     spentXp: 0,
     maxClp: 2,
@@ -13,24 +12,18 @@ const mockedCharacter: Character = {
     bars: {
         hp: {
             current: 0,
-            base: 0,
-            bought: 0,
             flat: 0,
             multiplier: 0,
             percentile: 0,
         },
         mp: {
             current: 0,
-            base: 0,
-            bought: 0,
             flat: 0,
             multiplier: 0,
             percentile: 0,
         },
         tempHp: {
             current: 0,
-            base: 0,
-            bought: 0,
             flat: 0,
             multiplier: 0,
             percentile: 0,
@@ -39,7 +32,13 @@ const mockedCharacter: Character = {
     attributes: {
         armor: { base: 0, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
         mArmor: { base: 0, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        strength: { base: 0, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
+        strength: {
+            base: 0,
+            bought: 0,
+            flat: 0,
+            multiplier: 0,
+            percentile: 0,
+        },
         dexterity: {
             base: 0,
             bought: 0,
