@@ -38,3 +38,31 @@ export function getAttributeModifier(
     const value = getTotalAttribute(char, attributeKey);
     return Math.floor((value - 25) / 5);
 }
+
+export function getTotalActions(xp: number) {
+    const level = getCharacterLevel(xp);
+    const thresholds = [30, 60, 90];
+    let actions = 3;
+
+    for (const threshold of thresholds) {
+        if (level >= threshold) {
+            actions++;
+        }
+    }
+
+    return actions;
+}
+
+export function getTotalDefense(char: Character) {
+    let baseDefense = char.attributes['defense'].base;
+    baseDefense += char.attributes['defense'].bought;
+    baseDefense += char.attributes['defense'].flat;
+
+    baseDefense += getAttributeModifier(char, 'dexterity');
+    baseDefense += getAttributeModifier(char, 'senses');
+
+    baseDefense *= 1 + char.attributes['defense'].multiplier;
+    baseDefense *= 1 + char.attributes['defense'].percentile / 100;
+
+    return baseDefense;
+}

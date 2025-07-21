@@ -8,6 +8,8 @@ import {
     getCharacterLevel,
     getTotalAttribute,
     getAttributeModifier,
+    getTotalActions,
+    getTotalDefense,
 } from '../../utils/getDerivedStats';
 import mockedCharacter from '../../data/mockedCharacter';
 import './styles.css';
@@ -64,6 +66,18 @@ export default function Layout() {
             totalLuck: {
                 base: getTotalAttribute(character, 'luck'),
                 modifier: getAttributeModifier(character, 'luck'),
+            },
+            totalSpeed: {
+                base: getTotalAttribute(character, 'speed'),
+                modifier: 0,
+            },
+            totalDefense: {
+                base: getTotalDefense(character),
+                modifier: 0,
+            },
+            totalActions: {
+                base: getTotalActions(character.xp),
+                modifier: 0,
             },
         }),
         [character]

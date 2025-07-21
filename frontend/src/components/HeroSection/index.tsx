@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { useCharacter, useDerivedStats } from '../../hook/useCharacter';
 import AnimatedProgressBar from '../AnimatedProgressBar';
 import characterIMG from '../../assets/character.jpg';
+import HeroEssentialAttributes from '../HeroEssentialAttributes';
 import HeroAttributes from '../HeroAttributes';
 import './styles.css';
 
 export default function HeroSection() {
     const [character, setCharacter, derivedStats] = useCharacter();
+    const level = useDerivedStats('level');
     const [hp, setHp] = useState(172);
     const [mp, setMp] = useState(230);
     const [armor, setArmor] = useState(28);
@@ -21,7 +23,7 @@ export default function HeroSection() {
                 <div className="hero-section-info">
                     <h1>{character?.name}</h1>
                     <p>
-                        <span>Lvl {}</span> <span>Minotaur</span>{' '}
+                        <span>Lvl {level.base}</span> <span>Minotaur</span>{' '}
                         <span>Cleric of Helm</span>
                     </p>
                 </div>
@@ -55,23 +57,7 @@ export default function HeroSection() {
                     Reset
                 </button>
             </div>
-            <div className="hero-section-essential-attributes">
-                <div>
-                    <h4>
-                        Speed <span>9m</span>
-                    </h4>
-                </div>
-                <div>
-                    <h4>
-                        Defense <span>18</span>
-                    </h4>
-                </div>
-                <div>
-                    <h4>
-                        Actions <span>5</span>
-                    </h4>
-                </div>
-            </div>
+            <HeroEssentialAttributes />
             <HeroAttributes />
             <div className="hero-section-resistances">{}</div>
         </section>

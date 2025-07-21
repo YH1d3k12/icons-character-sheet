@@ -12,6 +12,7 @@ export type AttributeKey =
     | 'spirit'
     | 'luck'
     | 'actions'
+    | 'defense'
     | 'speed'
     | 'flyingSpeed';
 export type ResistanceKey =

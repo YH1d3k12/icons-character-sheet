@@ -1,0 +1,29 @@
+.hero-section-essential-attributes {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    justify-content: space-around;
+    margin-top: 4px;
+    padding: 4px;
+    width: 100%;
+}
+
+.hero-section-essential-attributes div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hero-section-essential-attributes div h4 {
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.hero-section-essential-attributes div h4 span {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+}
