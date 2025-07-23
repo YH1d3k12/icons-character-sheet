@@ -64,29 +64,40 @@ const TalentTreeGraph: React.FC<TalentTreeGraphProps> = ({
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
     const handleLeftClick = (talent: Talent) => {
-        if (canAcquireTalent(character, talentTree.id, talent)) {
-            const updated = acquireTalent(character, talentTree.id, talent);
+        if (canAcquireTalent(character, talentTree.summary.id, talent)) {
+            const updated = acquireTalent(
+                character,
+                talentTree.summary.id,
+                talent
+            );
             setCharacter(updated);
         }
     };
 
     const handleRightClick = (talent: Talent, e: React.MouseEvent) => {
         e.preventDefault();
-        if (canUndoTalent(character, talentTree.id, talent, talentTree)) {
-            const updated = undoTalent(character, talentTree.id, talent.id);
+        if (
+            canUndoTalent(character, talentTree.summary.id, talent, talentTree)
+        ) {
+            const updated = undoTalent(
+                character,
+                talentTree.summary.id,
+                talent.id
+            );
             setCharacter(updated);
         }
     };
 
     const nodesWithHandlers = nodes.map(node => {
         const talent = node.data.talentInfo;
-        const acquiredTalent = character.acquiredTalents[talentTree.id]?.find(
-            (t: AcquiredTalent) => t.id === talent.id
-        );
+        const acquiredTalent = character.acquiredTalents[
+            talentTree.summary.id
+        ]?.find((t: AcquiredTalent) => t.id === talent.id);
 
         const acquired = !!acquiredTalent;
         const eligible =
-            !acquired && canAcquireTalent(character, talentTree.id, talent);
+            !acquired &&
+            canAcquireTalent(character, talentTree.summary.id, talent);
         const currentLevel = acquiredTalent?.level ?? 0;
 
         return {
