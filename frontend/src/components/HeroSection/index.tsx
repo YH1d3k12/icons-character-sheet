@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { useCharacter, useKeyStat } from '../../hooks/useCharacter';
 import AnimatedProgressBar from '../AnimatedProgressBar';
 import characterIMG from '../../assets/character.jpg';
-import HeroEssentialAttributes from '../HeroEssentialAttributes';
-import HeroAttributes from '../HeroAttributes';
 import './styles.css';
 
 export default function HeroSection() {
@@ -23,7 +21,7 @@ export default function HeroSection() {
                 <div className="hero-section-info">
                     <h1>{character?.name}</h1>
                     <p>
-                        <span>Lvl {level.base}</span> <span>Minotaur</span>{' '}
+                        <span>Lvl {}</span> <span>Minotaur</span>{' '}
                         <span>Cleric of Helm</span>
                     </p>
                 </div>
@@ -57,8 +55,6 @@ export default function HeroSection() {
                     Reset
                 </button>
             </div>
-            <HeroEssentialAttributes />
-            <HeroAttributes />
             <div className="hero-section-resistances">{}</div>
         </section>
     );
