@@ -1,70 +1,58 @@
-export type BarKey = 'hp' | 'mp' | 'tempHp';
-
 export type AttributeKey =
-    | 'armor'
-    | 'mArmor'
+    | 'prowess'
+    | 'coordination'
     | 'strength'
-    | 'dexterity'
-    | 'vigor'
-    | 'senses'
-    | 'charisma'
-    | 'mind'
-    | 'spirit'
-    | 'luck'
-    | 'actions'
-    | 'defense'
-    | 'speed'
-    | 'flyingSpeed';
-export type ResistanceKey =
-    | 'slashing'
-    | 'piercing'
-    | 'bludgeoning'
-    | 'corrosive'
-    | 'cold'
-    | 'electric'
-    | 'fire'
-    | 'thauma'
-    | 'thunder'
-    | 'poison'
-    | 'psychic'
-    | 'aetheric'
-    | 'light'
-    | 'dark';
-
-export interface AcquiredTalent {
-    id: string;
-    level: number;
-}
-
-export interface BarValue {
-    current: number;
-    flat: number;
-    multiplier: number;
-    percentile: number;
-}
+    | 'intellect'
+    | 'awareness'
+    | 'willpower';
 
 export interface StatValue {
     base: number;
-    bought: number;
     flat: number;
-    multiplier: number;
-    percentile: number;
 }
 
-export type BarMap = Record<BarKey, BarValue>;
 export type AttributeMap = Record<AttributeKey, StatValue>;
-export type ResistanceMap = Record<ResistanceKey, StatValue>;
+
+export interface Stamina {
+    base: number;
+    current: number;
+    flat: number;
+}
+
+export interface Power {
+    name: string;
+    level: number;
+    description?: string;
+}
+
+export interface Specialty {
+    name: string;
+    tier: number;
+}
+
+export interface Stunts {
+    name: string;
+    description: string;
+}
+
+export interface Item {
+    name: string;
+    quantity: number;
+    description?: string;
+    weight?: number;
+}
 
 export interface Character {
     id: number;
     name: string;
-    xp: number;
-    spentXp: number;
-    maxClp: number;
-    spentClp: number;
-    bars: BarMap;
-    acquiredTalents: Record<number, AcquiredTalent[]>;
-    classInvestments: Record<number, number>;
+    realName: string;
+    background?: string;
+    stamina: Stamina;
     attributes: AttributeMap;
-    resistances: ResistanceMap;
+    powers: Power[];
+    specialties: Specialty[];
+    qualities: string[];
+    flaws: string[];
+    stunts: Stunts[];
+    items: Item[];
 }

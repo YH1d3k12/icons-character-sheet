@@ -2,101 +2,97 @@ import type { Character } from '../services/character';
 
 const mockedCharacter: Character = {
     id: 1,
-    name: 'Mocked Character',
-    xp: 50,
-    spentXp: 0,
-    maxClp: 2,
-    spentClp: 0,
-    acquiredTalents: {},
-    classInvestments: {},
-    bars: {
-        hp: {
-            current: 0,
-            flat: 0,
-            multiplier: 0,
-            percentile: 0,
-        },
-        mp: {
-            current: 0,
-            flat: 0,
-            multiplier: 0,
-            percentile: 0,
-        },
-        tempHp: {
-            current: 0,
-            flat: 0,
-            multiplier: 0,
-            percentile: 0,
-        },
+    name: 'Silver Warden',
+    realName: 'Elena Cruz',
+    background: `Once a decorated military engineer, Elena Cruz became the Silver Warden after losing her family in a targeted attack by a rogue AI she helped design. Wracked with guilt, she now protects the city of Halcyon under a powered exosuit of her own making.`,
+    stamina: {
+        base: 10,
+        current: 10,
+        flat: 0,
     },
     attributes: {
-        armor: { base: 0, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        mArmor: { base: 0, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        strength: {
-            base: 38,
-            bought: 0,
-            flat: 0,
-            multiplier: 0,
-            percentile: 0,
-        },
-        dexterity: {
-            base: 35,
-            bought: 0,
-            flat: 0,
-            multiplier: 0,
-            percentile: 0,
-        },
-        vigor: { base: 32, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        senses: { base: 30, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        charisma: {
-            base: 28,
-            bought: 0,
-            flat: 0,
-            multiplier: 0,
-            percentile: 0,
-        },
-        mind: { base: 25, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        spirit: { base: 22, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        luck: { base: 15, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        actions: { base: 3, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        defense: { base: 5, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        speed: { base: 9, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        flyingSpeed: {
-            base: 0,
-            bought: 0,
-            flat: 0,
-            multiplier: 0,
-            percentile: 0,
-        },
+        prowess: { base: 4, flat: 0 },
+        coordination: { base: 5, flat: 0 },
+        strength: { base: 4, flat: 0 },
+        intellect: { base: 6, flat: 0 },
+        awareness: { base: 5, flat: 0 },
+        willpower: { base: 6, flat: 0 },
     },
-    resistances: {
-        slashing: { base: 0, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        piercing: { base: 0, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        bludgeoning: {
-            base: 0,
-            bought: 0,
-            flat: 0,
-            multiplier: 0,
-            percentile: 0,
+    powers: [
+        {
+            name: 'Powered Armor',
+            level: 6,
+            description:
+                'Grants enhanced strength, durability, sensors, and life support in hostile environments.',
         },
-        corrosive: {
-            base: 0,
-            bought: 0,
-            flat: 0,
-            multiplier: 0,
-            percentile: 0,
+        {
+            name: 'Force Field Generator',
+            level: 5,
+            description:
+                'Creates a protective barrier that absorbs damage before it reaches her.',
         },
-        cold: { base: 0, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        electric: { base: 0, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        fire: { base: 0, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        thauma: { base: 0, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        thunder: { base: 0, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        poison: { base: 0, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        psychic: { base: 0, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        aetheric: { base: 0, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        light: { base: 0, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-        dark: { base: 0, bought: 0, flat: 0, multiplier: 0, percentile: 0 },
-    },
+        {
+            name: 'Targeting Suite',
+            level: 4,
+            description:
+                'Improves ranged attacks and tracking through advanced sensors and calculations.',
+        },
+    ],
+    specialties: [
+        {
+            name: 'Technology',
+            tier: 3,
+        },
+        {
+            name: 'Military Tactics',
+            tier: 2,
+        },
+        {
+            name: 'Investigation',
+            tier: 1,
+        },
+    ],
+    qualities: [
+        'Protective of innocents',
+        'Code of honor: never escalate violence',
+        'Reputation as a ghost of justice in Halcyon’s underworld',
+    ],
+    flaws: [
+        'Haunted by past failures',
+        'Trust issues with AI and automated systems',
+    ],
+    stunts: [
+        {
+            name: 'Overclocked Shield Matrix',
+            description:
+                'Once per session, boost Force Field by +2 for one round to absorb a major hit.',
+        },
+        {
+            name: 'Tactical Override',
+            description:
+                'Spend 1 Determination to give an ally a free movement or attack action this turn.',
+        },
+    ],
+    items: [
+        {
+            name: 'Multi-Tool',
+            quantity: 1,
+            description: 'A versatile tool for repairs and modifications.',
+            weight: 1.5,
+        },
+        {
+            name: 'Combat Knife',
+            quantity: 1,
+            description: 'A reliable blade for close encounters.',
+            weight: 0.5,
+        },
+        {
+            name: 'Emergency Rations',
+            quantity: 3,
+            description: 'Nutrient-dense food packs for survival situations.',
+            weight: 0.2,
+        },
+    ],
 };
 
 export default mockedCharacter;
