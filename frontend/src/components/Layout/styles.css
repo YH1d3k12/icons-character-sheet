@@ -5,16 +5,43 @@
     min-height: 100vh;
 }
 
+.layout-veil {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--veil);
+    z-index: -1;
+    pointer-events: none;
+}
+
 .layout-background-image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(15deg, var(--white) 0%, var(--anti-flash-white) 100%);
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: -1;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.main {
+    min-height: calc(100vh - 114px);
+}
+
+.folder {
+    position: relative;
+    padding: 20px 10px;
+    min-height: 600px;
+    width: 100%;
+    background-color: var(--jasmine);
+}
+
+.folder-inner {
+    min-height: 600px;
+    width: 100%;
+    background-color: var(--white);
 }
 
 .section-padding {

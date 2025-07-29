@@ -1,181 +1,61 @@
-.header {
-    position: sticky;
-    top: 0px;
-    display: flex;
-    align-items: center;
-    padding: 0 8%;
-    min-height: 64px;
-    width: 100%;
-    background-color: var(--night);
-    z-index: 99;
-    transition: background-color 0.3s ease-in;
-}
-
 .navbar {
+    position: relative;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
+    justify-content: flex-end;
+    padding: 0 5%;
+    height: 30px;
     width: 100%;
-}
-
-.navbar-title {
-    color: var(--anti-flash-white);
-    font-size: 2.4rem;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.navbar-title:hover {
-    color: var(--maize);
-}
-
-.navbar-links {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
 }
 
 .navbar-link {
+    position: relative;
     display: flex;
-    gap: 5px;
+    gap: 10px;
     align-items: center;
-    justify-content: center;
-    background-color: transparent;
+    margin-left: -15px;
+    border: 1px solid var(--gray);
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    padding: 0 12px;
+    background-color: var(--anti-flash-white);
+    font-weight: 500;
     cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    z-index: 1;
 }
 
 .navbar-link svg {
-    fill: var(--gray);
+    color: var(--night);
 }
 
 .navbar-link span {
-    color: var(--gray);
-    font-size: 1.4rem;
-    font-weight: 500;
+    color: var(--night);
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
-.navbar-link:hover svg,
-.navbar-link:hover span {
-    fill: var(--maize);
-    color: var(--maize);
+.navbar-link:first-child {
+    margin-left: 0;
 }
 
-.navbar-upload {}
-
-/* ===================== */
-.navbar-burguer-container {
-    display: none;
+.navbar-link:hover,
+.navbar-link:focus {
+    border-color: var(--gun-metal);
+    background-color: var(--white);
+    box-shadow: 0 2px 5px #00000026;
+    z-index: 10;
 }
 
-.navbar-burguer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 40px;
-    height: 30px;
-    cursor: pointer;
-}
-
-.navbar-burguer span {
-    display: block;
-    height: 3px;
-    width: 100%;
-    background-color: var(--gray);
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-#menuToggle {
-    display: none;
-}
-
-#menuToggle:checked+.navbar-burguer span:nth-child(1) {
-    transform: rotate(45deg) translateY(4px) translateX(6px);
-    position: relative;
-    top: 6px;
-}
-
-#menuToggle:checked+.navbar-burguer span:nth-child(2) {
-    opacity: 0;
-}
-
-#menuToggle:checked+.navbar-burguer span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-4px) translateX(6px);
-    position: relative;
-    bottom: 6px;
-}
-
-.navbar-burguer-links {
-    position: absolute;
-    top: 61.8px;
-    right: 0;
-    display: none;
-    width: 100%;
-    min-width: 140px;
-    max-width: 140px;
-    background-color: var(--night);
-    box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.3);
-}
-
-.navbar-burguer-links.open {
-    display: block;
-}
-
-.navbar-burguer-links li a {
-    display: flex;
-    gap: 10px;
-    justify-content: start;
-    align-items: center;
-    width: 100%;
-    padding: 8px 16px;
-    cursor: pointer;
-}
-
-.navbar-burguer-links li a span {
-    color: var(--gray);
-    font-size: 1.4rem;
-    font-weight: 500;
-}
-
-.navbar-burguer-links li a svg {
-    fill: var(--gray);
-}
-
-.navbar-burguer-links li a:hover span,
-.navbar-burguer-links li a:hover svg {
-    color: var(--maize);
-    fill: var(--maize);
-}
-
-.navbar-burguer-links .download-button,
-.navbar-burguer-links .upload-button {
-    border-radius: 0px !important;
-    padding: 8px 16px !important;
-    width: 100% !important;
+.navbar-link.active {
+    border-color: var(--gun-metal);
+    background-color: var(--white);
+    box-shadow: 0 2px 5px #00000026;
+    z-index: 20;
 }
 
 @media screen and (max-width: 1024px) {
-    .header {
-        padding: 0 16px;
-        background-color: var(--night);
-    }
-
-    .navbar-title {
-        color: var(--anti-flash-white);
-    }
-
-    .navbar-burguer-container {
-        display: block;
-    }
-
-    .navbar-links {
+    .navbar-link span {
         display: none;
-    }
-}
-
-@media screen and (max-width: 640px) {
-    .navbar-title {
-        font-size: 1.8rem;
     }
 }

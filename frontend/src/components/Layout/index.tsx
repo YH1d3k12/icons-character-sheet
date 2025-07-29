@@ -3,9 +3,11 @@ import { Outlet } from 'react-router-dom';
 import type { Character } from '../../services/character';
 import type { DerivedStatsMap } from '../../hooks/useDerivedStats';
 import useDerivedStats from '../../hooks/useDerivedStats';
+import Header from '../Header';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 import mockedCharacter from '../../data/mockedCharacter';
+import desk from '../../assets/desk.jpg';
 import './styles.css';
 
 export const CharacterContext = React.createContext<
@@ -64,12 +66,21 @@ export default function Layout() {
                 <img
                     className="layout-background-image"
                     alt="background image"
+                    src={desk}
                 />
-                <Navbar
+                <div className="layout-veil"></div>
+                <Header
                     onUploadCharacter={handleUpload}
                     onDownload={downloadCharacter}
                 />
-                <Outlet />
+                <main className="main section-padding">
+                    <Navbar />
+                    <div className="folder">
+                        <div className="folder-inner">
+                            <Outlet />
+                        </div>
+                    </div>
+                </main>
                 <Footer />
             </div>
         </CharacterContext.Provider>

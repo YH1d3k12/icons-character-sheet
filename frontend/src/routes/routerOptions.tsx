@@ -1,15 +1,15 @@
 import type { JSX } from 'react';
 import { IoPersonCircle, IoBriefcase } from 'react-icons/io5';
 
-interface MenuOption {
+interface RouterOption {
     title: string;
     icon: JSX.Element;
     path: string;
 }
 
-export const options: MenuOption[] = [
+export const options: RouterOption[] = [
     {
-        title: 'Character',
+        title: 'Profile',
         icon: <IoPersonCircle size={24} />,
         path: '/',
     },
