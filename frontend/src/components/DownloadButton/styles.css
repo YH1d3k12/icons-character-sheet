@@ -1,0 +1,27 @@
+.download-button {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    border-radius: 4px;
+    padding: 5px 10px;
+    background: var(--shamrock-green);
+    color: var(--anti-flash-white);
+    font-size: 1.4rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease-in, color 0.3s ease-in;
+    cursor: pointer;
+}
+
+.download-button svg {
+    fill: var(--anti-flash-white);
+    transition: fill 0.3s ease-in;
+}
+
+.download-button:hover {
+    background-color: var(--anti-flash-white);
+    color: var(--shamrock-green);
+}
+
+.download-button:hover svg {
+    fill: var(--shamrock-green);
+}
