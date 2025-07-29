@@ -3,7 +3,6 @@ import { Outlet } from 'react-router-dom';
 import type { Character } from '../../services/character';
 import type { DerivedStatsMap } from '../../hooks/useDerivedStats';
 import useDerivedStats from '../../hooks/useDerivedStats';
-import Header from '../Header';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 import mockedCharacter from '../../data/mockedCharacter';
@@ -66,16 +65,11 @@ export default function Layout() {
                     className="layout-background-image"
                     alt="background image"
                 />
-                <Header />
-                <div className="layout-content">
-                    <Navbar
-                        onDownloadCharacter={downloadCharacter}
-                        onUploadCharacter={handleUpload}
-                    />
-                    <div className="layout-outlet">
-                        <Outlet />
-                    </div>
-                </div>
+                <Navbar
+                    onUploadCharacter={handleUpload}
+                    onDownload={downloadCharacter}
+                />
+                <Outlet />
                 <Footer />
             </div>
         </CharacterContext.Provider>

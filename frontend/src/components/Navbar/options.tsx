@@ -1,5 +1,5 @@
 import type { JSX } from 'react';
-import { FaRegHandPointer } from 'react-icons/fa';
+import { IoPersonCircle, IoBriefcase } from 'react-icons/io5';
 
 interface MenuOption {
     title: string;
@@ -10,22 +10,12 @@ interface MenuOption {
 export const options: MenuOption[] = [
     {
         title: 'Character',
-        icon: <FaRegHandPointer />,
+        icon: <IoPersonCircle size={24} />,
         path: '/',
     },
     {
         title: 'Inventory',
-        icon: <FaRegHandPointer />,
+        icon: <IoBriefcase size={24} />,
         path: '/inventory',
-    },
-    {
-        title: 'Abilities',
-        icon: <FaRegHandPointer />,
-        path: '/abilities',
-    },
-    {
-        title: 'Perks',
-        icon: <FaRegHandPointer />,
-        path: '/perks',
     },
 ];

@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+:root {
+  --anti-flash-white: #F2F3F4;
+  --gray: #808080;
+  --gun-metal: #2B3137;
+  --jet: #2B2B2A;
+  --maize: #FFF05A;
+  --shamrock-green: #2E9E59;
+  --night: #12130F;
+  --royal-blue: #305CDE;
+  --veil: #080808c0;
+  --white: #FFFEFE;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
