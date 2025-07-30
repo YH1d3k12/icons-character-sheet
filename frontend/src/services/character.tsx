@@ -1,45 +1,13 @@
-export type AttributeKey =
-    | 'prowess'
-    | 'coordination'
-    | 'strength'
-    | 'intellect'
-    | 'awareness'
-    | 'willpower';
+import type { AttributeMap } from './attribute';
+import type { Speciality } from './speciality';
+import type { Stunts } from './stunts';
+import type { Power } from './power';
+import type { Item } from './item';
 
-export interface StatValue {
-    base: number;
-    flat: number;
-}
-
-export type AttributeMap = Record<AttributeKey, StatValue>;
-
-export interface Resource {
+interface Resource {
     base: number;
     current: number;
     flat: number;
-}
-
-export interface Power {
-    name: string;
-    level: number;
-    description?: string;
-}
-
-export interface Specialty {
-    name: string;
-    tier: number;
-}
-
-export interface Stunts {
-    name: string;
-    description: string;
-}
-
-export interface Item {
-    name: string;
-    quantity: number;
-    description?: string;
-    weight?: number;
 }
 
 export interface Character {
@@ -55,7 +23,7 @@ export interface Character {
     determination: Resource;
     attributes: AttributeMap;
     powers: Power[];
-    specialties: Specialty[];
+    specialities: Speciality[];
     qualities: string[];
     flaws: string[];
     stunts: Stunts[];

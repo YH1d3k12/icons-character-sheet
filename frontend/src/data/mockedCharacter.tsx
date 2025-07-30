@@ -47,7 +47,7 @@ const mockedCharacter: Character = {
                 'Improves ranged attacks and tracking through advanced sensors and calculations.',
         },
     ],
-    specialties: [
+    specialities: [
         {
             name: 'Technology',
             tier: 3,
