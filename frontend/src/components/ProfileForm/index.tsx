@@ -1,4 +1,5 @@
 import { useCharacter, useKeyStat } from '../../hooks/useCharacter';
+import PowersFieldSection from '../PowerFieldSection';
 import './styles.css';
 
 export default function ProfileForm() {
@@ -7,13 +8,13 @@ export default function ProfileForm() {
     const totalDetermination = useKeyStat('totalDetermination');
 
     return (
-        <form className="profile-form">
+        <form className="form profile-form">
             <fieldset>
                 <legend>Bio</legend>
                 <label>
                     Name:
                     <input
-                        className="profile-form-input"
+                        className="form-input"
                         type="text"
                         value={character.name}
                         onChange={e =>
@@ -24,7 +25,7 @@ export default function ProfileForm() {
                 <label>
                     Origin:
                     <input
-                        className="profile-form-input"
+                        className="form-input"
                         type="text"
                         value={character.origin}
                         onChange={e =>
@@ -39,7 +40,7 @@ export default function ProfileForm() {
                     <label>
                         Sex:
                         <input
-                            className="profile-form-input"
+                            className="form-input"
                             type="text"
                             value={character.sex}
                             onChange={e =>
@@ -53,7 +54,7 @@ export default function ProfileForm() {
                     <label>
                         Age:
                         <input
-                            className="profile-form-input"
+                            className="form-input"
                             type="number"
                             value={character.age}
                             onChange={e =>
@@ -69,7 +70,7 @@ export default function ProfileForm() {
                     <label>
                         Height:
                         <input
-                            className="profile-form-input"
+                            className="form-input"
                             type="text"
                             value={character.height}
                             onChange={e =>
@@ -83,7 +84,7 @@ export default function ProfileForm() {
                     <label>
                         Weight:
                         <input
-                            className="profile-form-input"
+                            className="form-input"
                             type="text"
                             value={character.weight}
                             onChange={e =>
@@ -102,7 +103,7 @@ export default function ProfileForm() {
                     <label>
                         Stamina:
                         <input
-                            className="profile-form-input attribute"
+                            className="form-input attribute"
                             type="number"
                             value={character.stamina.current}
                             onChange={e =>
@@ -120,7 +121,7 @@ export default function ProfileForm() {
                     <label>
                         Determination:
                         <input
-                            className="profile-form-input attribute"
+                            className="form-input attribute"
                             type="number"
                             value={character.determination.current}
                             onChange={e =>
@@ -143,7 +144,7 @@ export default function ProfileForm() {
                     <label>
                         Prowess:
                         <input
-                            className="profile-form-input attribute"
+                            className="form-input attribute"
                             type="text"
                             value={character.attributes.prowess.base}
                             readOnly
@@ -153,7 +154,7 @@ export default function ProfileForm() {
                     <label>
                         Coordination:
                         <input
-                            className="profile-form-input attribute"
+                            className="form-input attribute"
                             type="text"
                             value={character.attributes.coordination.base}
                             readOnly
@@ -163,7 +164,7 @@ export default function ProfileForm() {
                     <label>
                         Strength:
                         <input
-                            className="profile-form-input attribute"
+                            className="form-input attribute"
                             type="text"
                             value={character.attributes.strength.base}
                             readOnly
@@ -175,7 +176,7 @@ export default function ProfileForm() {
                     <label>
                         Intellect:
                         <input
-                            className="profile-form-input attribute"
+                            className="form-input attribute"
                             type="text"
                             value={character.attributes.intellect.base}
                             readOnly
@@ -185,7 +186,7 @@ export default function ProfileForm() {
                     <label>
                         Awareness:
                         <input
-                            className="profile-form-input attribute"
+                            className="form-input attribute"
                             type="text"
                             value={character.attributes.awareness.base}
                             readOnly
@@ -195,7 +196,7 @@ export default function ProfileForm() {
                     <label>
                         Willpower:
                         <input
-                            className="profile-form-input attribute"
+                            className="form-input attribute"
                             type="text"
                             value={character.attributes.willpower.base}
                             readOnly
@@ -204,6 +205,10 @@ export default function ProfileForm() {
                     </label>
                 </div>
             </fieldset>
+            <PowersFieldSection
+                character={character}
+                setCharacter={setCharacter}
+            />
         </form>
     );
 }

@@ -3,6 +3,8 @@ import type { Character } from '../services/character';
 const mockedCharacter: Character = {
     id: 1,
     name: "Silver Warden 'Elena Cruz'",
+    portrait:
+        'https://www.shutterstock.com/image-vector/blank-avatar-photo-icon-design-600nw-1682415103.jpg',
     origin: 'Halcyon City, 2145',
     sex: 'Female',
     age: 32,

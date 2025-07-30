@@ -13,6 +13,7 @@ interface Resource {
 export interface Character {
     id: number;
     name: string;
+    portrait: string;
     origin: string;
     sex: string;
     age: number;

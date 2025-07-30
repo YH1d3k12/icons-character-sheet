@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Special+Elite&display=swap');
 
 :root {
   --anti-flash-white: #F2F3F4;
+  --bittersweet: #FF5751;
   --gray: #808080;
   --gun-metal: #2B3137;
   --jasmine: #fcd472;
@@ -35,4 +36,112 @@
 .col {
   display: flex;
   flex-direction: column;
+}
+
+
+.form {
+  border: 2px solid var(--gray);
+  border-radius: 4px;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 600px;
+  font-family: "Courier Prime", monospace !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.form legend {
+  font-size: 1.6rem;
+  color: var(--turkey-red);
+  font-weight: bold;
+  font-family: "Courier Prime", monospace !important;
+}
+
+.form fieldset {
+  margin-bottom: 5px;
+  border: 2px solid var(--onyx);
+  border-radius: 4px;
+  padding: 15px;
+  background-color: #fff;
+}
+
+.form label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+  padding: 6px 10px;
+  width: 100%;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--onyx);
+  font-family: "Courier Prime", monospace !important;
+}
+
+.form-input {
+  width: 100%;
+  font-size: 1.4rem;
+  font-family: "Courier Prime", monospace !important;
+}
+
+.form-input.attribute {
+  text-align: end;
+}
+
+.form-text {
+  min-height: 60px;
+  height: 60px;
+  width: 100%;
+  color: var(--onyx);
+  font-size: 1.2rem;
+  font-family: "Courier Prime", monospace !important;
+  resize: vertical;
+}
+
+.plus-input {
+  border-radius: 4px;
+  padding: 5px;
+  height: 30px;
+  width: 30px;
+  background-color: var(--jasmine);
+  font-size: 1.4rem;
+  font-weight: 900;
+  font-family: "Courier Prime", monospace !important;
+  text-align: center !important;
+}
+
+.rmv-number-arrows {
+  -moz-appearance: textfield !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+.rmv-number-arrows::-webkit-outer-spin-button,
+.rmv-number-arrows::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.rmv-number-arrows [type=number] {
+  -moz-appearance: textfield !important;
+}
+
+@media screen and (max-width: 640px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0px;
+  }
 }
