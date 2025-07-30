@@ -1,15 +1,31 @@
 import { useMemo } from 'react';
 import type { Character } from '../services/character';
 
-interface DerivedStatValue {
-    base: number;
-    modifier: number;
-}
+export default function useDerivedStats(character: Character) {
+    const totalStamina = useMemo(() => {
+        let result = character.stamina.base + character.stamina.flat;
+        result += character.attributes.strength.base;
+        result += character.attributes.willpower.base;
 
-export type DerivedStatsMap = Record<string, DerivedStatValue>;
+        return result;
+    }, [
+        character.stamina.base,
+        character.stamina.flat,
+        character.attributes.strength,
+        character.attributes.willpower,
+    ]);
 
-export default function useDerivedStats(character: Character): DerivedStatsMap {
-    const derivedStats = {};
+    const totalDetermination = useMemo(() => {
+        let result =
+            character.determination.base + character.determination.flat;
+
+        return result;
+    }, [character.determination.base, character.determination.flat]);
+
+    const derivedStats = {
+        totalStamina,
+        totalDetermination,
+    };
 
     return derivedStats;
 }

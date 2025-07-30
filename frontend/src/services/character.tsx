@@ -13,7 +13,7 @@ export interface StatValue {
 
 export type AttributeMap = Record<AttributeKey, StatValue>;
 
-export interface Stamina {
+export interface Resource {
     base: number;
     current: number;
     flat: number;
@@ -45,9 +45,14 @@ export interface Item {
 export interface Character {
     id: number;
     name: string;
-    realName: string;
-    background?: string;
-    stamina: Stamina;
+    origin: string;
+    sex: string;
+    age: number;
+    height: string;
+    weight: string;
+    background: string;
+    stamina: Resource;
+    determination: Resource;
     attributes: AttributeMap;
     powers: Power[];
     specialties: Specialty[];

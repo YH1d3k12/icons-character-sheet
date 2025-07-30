@@ -2,12 +2,21 @@ import type { Character } from '../services/character';
 
 const mockedCharacter: Character = {
     id: 1,
-    name: 'Silver Warden',
-    realName: 'Elena Cruz',
+    name: "Silver Warden 'Elena Cruz'",
+    origin: 'Halcyon City, 2145',
+    sex: 'Female',
+    age: 32,
+    height: '5\'9"',
+    weight: '150 lbs',
     background: `Once a decorated military engineer, Elena Cruz became the Silver Warden after losing her family in a targeted attack by a rogue AI she helped design. Wracked with guilt, she now protects the city of Halcyon under a powered exosuit of her own making.`,
     stamina: {
         base: 10,
         current: 10,
+        flat: 0,
+    },
+    determination: {
+        base: 6,
+        current: 6,
         flat: 0,
     },
     attributes: {
