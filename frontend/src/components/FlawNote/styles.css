@@ -1,0 +1,35 @@
+.flaw-note {
+    padding: 18px 12px 16px 12px;
+    min-height: 200px;
+    height: 200px;
+    min-width: 280px;
+    width: 280px;
+    background: radial-gradient(circle, var(--bittersweet) 0%, var(--turkey-red) 100%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.65);
+    transform: rotate(-5deg);
+    transition: box-shadow 0.22s;
+}
+
+.flaw-note:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.65);
+}
+
+.flaw-note-label {
+    height: 90%;
+    width: 100%;
+    color: var(--seal-brown);
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: "Indie Flower", cursive !important;
+}
+
+.flaw-note-text {
+    height: 90%;
+    width: 100%;
+    color: var(--onyx);
+    background-color: transparent;
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: "Indie Flower", cursive !important;
+    resize: none;
+}

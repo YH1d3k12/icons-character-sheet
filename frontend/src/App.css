@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 :root {
   --anti-flash-white: #F2F3F4;
@@ -11,6 +12,7 @@
   --maize: #FFF05A;
   --night: #12130F;
   --royal-blue: #305CDE;
+  --seal-brown: #61210F;
   --shamrock-green: #2E9E59;
   --turkey-red: #b30000;
   --veil: #08080866;

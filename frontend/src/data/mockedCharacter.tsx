@@ -63,15 +63,9 @@ const mockedCharacter: Character = {
             tier: 1,
         },
     ],
-    qualities: [
-        'Protective of innocents',
-        'Code of honor: never escalate violence',
-        'Reputation as a ghost of justice in Halcyon’s underworld',
-    ],
-    flaws: [
-        'Haunted by past failures',
-        'Trust issues with AI and automated systems',
-    ],
+    qualities:
+        'Protective of innocents, Code of honor: never escalate violence, Reputation as a ghost of justice in Halcyon’s underworld',
+    flaws: 'Haunted by past failures, Trust issues with AI and automated systems',
     stunts: [
         {
             name: 'Overclocked Shield Matrix',

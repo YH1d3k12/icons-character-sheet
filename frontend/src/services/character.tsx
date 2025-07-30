@@ -25,8 +25,8 @@ export interface Character {
     attributes: AttributeMap;
     powers: Power[];
     specialities: Speciality[];
-    qualities: string[];
-    flaws: string[];
+    qualities: string;
+    flaws: string;
     stunts: Stunts[];
     items: Item[];
 }
