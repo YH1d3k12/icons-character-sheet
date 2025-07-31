@@ -1,1 +1,0 @@
-import{r as e,C as a}from"./index-Cg8Vr5Zi.js";function o(){const t=e.useContext(a);if(!t)throw new Error("useCharacter must be used within CharacterContext.Provider");return t}function s(t){const[,,r]=o();return r[t]}export{s as a,o as u};
