@@ -7,13 +7,15 @@ import './styles.css';
 export default function ProfilePage() {
     return (
         <div className="profile-page">
-            <div className="profile-page-row">
-                <div className="profile-page-note-column">
-                    <FlawNote />
-                    <QualityNote />
+            <div className="profile-page-container">
+                <div className="pp-note-container">
                     <HeroPhoto />
+                    <QualityNote />
+                    <FlawNote />
                 </div>
-                <ProfileForm />
+                <div className="pp-form-container">
+                    <ProfileForm />
+                </div>
             </div>
         </div>
     );

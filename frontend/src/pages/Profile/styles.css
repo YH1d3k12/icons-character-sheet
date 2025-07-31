@@ -1,15 +1,37 @@
-.profile-page-row {
+.profile-page-container {
     display: flex;
     justify-content: space-around;
     padding: 20px;
     width: 100%;
 }
 
-.profile-page-note-column {
+.pp-note-container {
+    position: relative;
     display: flex;
-    gap: 10px;
-    flex-direction: column-reverse;
-    justify-content: start;
-    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
     width: 100%;
+}
+
+.pp-form-container {
+    display: flex;
+    align-items: center;
+    width: 135%;
+}
+
+@media screen and (max-width: 1280px) {
+    .profile-page-container {
+        flex-direction: column-reverse;
+    }
+
+    /* .pp-note-container {
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+        justify-content: center;
+    } */
+
+    .pp-form-container {
+        justify-content: center;
+        width: 100%;
+    }
 }
