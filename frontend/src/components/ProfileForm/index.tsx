@@ -205,6 +205,21 @@ export default function ProfileForm() {
                     </label>
                 </div>
             </fieldset>
+            <fieldset>
+                <legend>Specialities</legend>
+                <label>
+                    <textarea
+                        className="form-text"
+                        value={character.specialities}
+                        onChange={e =>
+                            setCharacter({
+                                ...character,
+                                specialities: e.target.value,
+                            })
+                        }
+                    />
+                </label>
+            </fieldset>
             <PowersFieldSection
                 character={character}
                 setCharacter={setCharacter}

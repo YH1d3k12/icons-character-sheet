@@ -1,5 +1,4 @@
 import type { AttributeMap } from './attribute';
-import type { Speciality } from './speciality';
 import type { Power } from './power';
 import type { Item } from './item';
 
@@ -10,7 +9,6 @@ interface Resource {
 }
 
 export interface Character {
-    id: number;
     name: string;
     portrait: string;
     origin: string;
@@ -23,9 +21,10 @@ export interface Character {
     determination: Resource;
     attributes: AttributeMap;
     powers: Power[];
-    specialities: Speciality[];
+    specialities: string;
     qualities: string;
     flaws: string;
     stunts: string;
     items: Item[];
+    smallItems: Item[];
 }

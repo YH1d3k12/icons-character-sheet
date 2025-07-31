@@ -1,7 +1,6 @@
 import type { Character } from '../services/character';
 
 const mockedCharacter: Character = {
-    id: 1,
     name: "Silver Warden 'Elena Cruz'",
     portrait:
         'https://www.shutterstock.com/image-vector/blank-avatar-photo-icon-design-600nw-1682415103.jpg',
@@ -49,20 +48,7 @@ const mockedCharacter: Character = {
                 'Improves ranged attacks and tracking through advanced sensors and calculations.',
         },
     ],
-    specialities: [
-        {
-            name: 'Technology',
-            tier: 3,
-        },
-        {
-            name: 'Military Tactics',
-            tier: 2,
-        },
-        {
-            name: 'Investigation',
-            tier: 1,
-        },
-    ],
+    specialities: 'Engineering, Combat Tactics, Hacking, Robotics',
     qualities:
         'Protective of innocents, Code of honor: never escalate violence, Reputation as a ghost of justice in Halcyon’s underworld',
     flaws: 'Haunted by past failures, Trust issues with AI and automated systems',
@@ -85,6 +71,23 @@ const mockedCharacter: Character = {
             quantity: 3,
             description: 'Nutrient-dense food packs for survival situations.',
             weight: 0.2,
+        },
+    ],
+    smallItems: [
+        {
+            name: 'Holo-Communicator',
+            quantity: 1,
+            weight: 0.1,
+        },
+        {
+            name: 'Flashlight',
+            quantity: 1,
+            weight: 0.3,
+        },
+        {
+            name: 'Cell Phone',
+            quantity: 1,
+            weight: 0.4,
         },
     ],
 };
