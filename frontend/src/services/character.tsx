@@ -26,5 +26,5 @@ export interface Character {
     flaws: string;
     stunts: string;
     items: Item[];
-    smallItems: Item[];
+    smallItems: string;
 }

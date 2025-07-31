@@ -73,23 +73,8 @@ const mockedCharacter: Character = {
             weight: 0.2,
         },
     ],
-    smallItems: [
-        {
-            name: 'Holo-Communicator',
-            quantity: 1,
-            weight: 0.1,
-        },
-        {
-            name: 'Flashlight',
-            quantity: 1,
-            weight: 0.3,
-        },
-        {
-            name: 'Cell Phone',
-            quantity: 1,
-            weight: 0.4,
-        },
-    ],
+    smallItems:
+        'First Aid Kit, Flashlight, Multi-Tool, Combat Knife, Emergency Rations',
 };
 
 export default mockedCharacter;
