@@ -24,11 +24,9 @@
         flex-direction: column-reverse;
     }
 
-    /* .pp-note-container {
-        flex-direction: row-reverse;
-        flex-wrap: wrap;
+    .pp-note-container {
         justify-content: center;
-    } */
+    }
 
     .pp-form-container {
         justify-content: center;

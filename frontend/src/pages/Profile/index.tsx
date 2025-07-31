@@ -1,6 +1,7 @@
 import ProfileForm from '../../components/ProfileForm';
 import HeroPhoto from '../../components/HeroPhoto';
 import QualityNote from '../../components/QualityNote';
+import StuntNote from '../../components/StuntNote';
 import FlawNote from '../../components/FlawNote';
 import './styles.css';
 
@@ -12,6 +13,7 @@ export default function ProfilePage() {
                     <HeroPhoto />
                     <QualityNote />
                     <FlawNote />
+                    <StuntNote />
                 </div>
                 <div className="pp-form-container">
                     <ProfileForm />

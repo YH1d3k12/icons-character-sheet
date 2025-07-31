@@ -1,6 +1,5 @@
 import type { AttributeMap } from './attribute';
 import type { Speciality } from './speciality';
-import type { Stunts } from './stunts';
 import type { Power } from './power';
 import type { Item } from './item';
 
@@ -27,6 +26,6 @@ export interface Character {
     specialities: Speciality[];
     qualities: string;
     flaws: string;
-    stunts: Stunts[];
+    stunts: string;
     items: Item[];
 }

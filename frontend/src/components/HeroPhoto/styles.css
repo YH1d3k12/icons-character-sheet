@@ -12,7 +12,7 @@
     transform: rotate(-3deg);
     transition: box-shadow 0.22s;
     cursor: pointer;
-    z-index: 3;
+    z-index: 4;
 }
 
 .hero-photo:hover {

@@ -66,18 +66,7 @@ const mockedCharacter: Character = {
     qualities:
         'Protective of innocents, Code of honor: never escalate violence, Reputation as a ghost of justice in Halcyon’s underworld',
     flaws: 'Haunted by past failures, Trust issues with AI and automated systems',
-    stunts: [
-        {
-            name: 'Overclocked Shield Matrix',
-            description:
-                'Once per session, boost Force Field by +2 for one round to absorb a major hit.',
-        },
-        {
-            name: 'Tactical Override',
-            description:
-                'Spend 1 Determination to give an ally a free movement or attack action this turn.',
-        },
-    ],
+    stunts: 'Overclocked Shield Matrix: Once per session, boost Force Field by +2 for one round to absorb a major hit.',
     items: [
         {
             name: 'Multi-Tool',
