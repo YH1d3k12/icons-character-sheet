@@ -48,6 +48,13 @@
     color: var(--shamrock-green);
 }
 
+@media screen and (max-width: 680px) {
+    .inventory-form {
+        min-width: 300px;
+        width: 100%;
+    }
+}
+
 @media screen and (max-width: 640px) {
     .rmv-item-button {
         position: absolute;

@@ -1,0 +1,36 @@
+.advanced-stats-form {
+    min-width: 580px;
+    max-width: 640px;
+}
+
+.advanced-config-table {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.advanced-config-row {
+    display: contents;
+}
+
+.advanced-config-header div {
+    border-bottom: 2px solid #333;
+    padding-bottom: 1px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.attr-name {
+    padding-right: 10px;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+
+@media screen and (max-width: 680px) {
+    .advanced-stats-form {
+        min-width: 300px;
+        width: 100%;
+    }
+}

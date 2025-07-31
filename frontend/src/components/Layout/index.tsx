@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import type { Character } from '../../services/character';
-import type { DerivedStatsMap } from '../../hooks/useDerivedStats';
 import useDerivedStats from '../../hooks/useDerivedStats';
 import Header from '../Header';
 import Navbar from '../Navbar';
@@ -9,6 +8,8 @@ import Footer from '../Footer';
 import mockedCharacter from '../../data/mockedCharacter';
 import desk from '../../assets/desk.jpg';
 import './styles.css';
+
+type DerivedStatsMap = Record<string, number>;
 
 export const CharacterContext = React.createContext<
     | [
