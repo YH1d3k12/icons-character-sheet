@@ -146,7 +146,10 @@ export default function ProfileForm() {
                         <input
                             className="form-input attribute"
                             type="text"
-                            value={character.attributes.prowess.base}
+                            value={
+                                character.attributes.prowess.base +
+                                character.attributes.prowess.flat
+                            }
                             readOnly
                             disabled
                         />
@@ -156,7 +159,10 @@ export default function ProfileForm() {
                         <input
                             className="form-input attribute"
                             type="text"
-                            value={character.attributes.coordination.base}
+                            value={
+                                character.attributes.coordination.base +
+                                character.attributes.coordination.flat
+                            }
                             readOnly
                             disabled
                         />
@@ -166,7 +172,10 @@ export default function ProfileForm() {
                         <input
                             className="form-input attribute"
                             type="text"
-                            value={character.attributes.strength.base}
+                            value={
+                                character.attributes.strength.base +
+                                character.attributes.strength.flat
+                            }
                             readOnly
                             disabled
                         />
@@ -178,7 +187,10 @@ export default function ProfileForm() {
                         <input
                             className="form-input attribute"
                             type="text"
-                            value={character.attributes.intellect.base}
+                            value={
+                                character.attributes.intellect.base +
+                                character.attributes.intellect.flat
+                            }
                             readOnly
                             disabled
                         />
@@ -188,7 +200,10 @@ export default function ProfileForm() {
                         <input
                             className="form-input attribute"
                             type="text"
-                            value={character.attributes.awareness.base}
+                            value={
+                                character.attributes.awareness.base +
+                                character.attributes.awareness.flat
+                            }
                             readOnly
                             disabled
                         />
@@ -198,7 +213,10 @@ export default function ProfileForm() {
                         <input
                             className="form-input attribute"
                             type="text"
-                            value={character.attributes.willpower.base}
+                            value={
+                                character.attributes.willpower.base +
+                                character.attributes.willpower.flat
+                            }
                             readOnly
                             disabled
                         />
